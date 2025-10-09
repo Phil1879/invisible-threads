@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Онлайн-курс Павла Казаряна «Батьківські директиви» — як звільнитися від чужих сценаріїв і почати жити своє життя.">
+    <meta property="og:title" content="Батьківські директиви — Курс Павла Казаряна">
+    <meta property="og:description" content="Переосмисли своє дитинство. Розірви невидимі ниті, що керують твоїм життям.">
+    <meta property="og:image" content="https://ninarkotikam.com/wp-content/uploads/2025/10/IMG_7491.png">
+    <meta property="og:url" content="https://kazaryan.coach/directives">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="https://djerelo-hub.github.io/center-djerelo/img/favicon.png" type="image/png">
+    <title>Батьківські Директиви — Курс Павла Казаряна</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   
+    <style>
+        * { 
+            font-family: 'Montserrat', sans-serif;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        body { background: #0a0a0a; color: #ffffff; overflow-x: hidden; }
+        .accent-orange { background: #ff6b35; }
+        .accent-orange-hover:hover { background: #ff5522; transform: scale(1.02); }
+        .text-orange { color: #ff6b35; text-shadow: 0 0 14px rgba(255,107,53,0.5); }
+        .border-orange { border-color: #ff6b35; }
+        .bg-dark-card { background: #1a1a1a; box-shadow: 0 0 24px rgba(255,107,53,0.12); }
+        .bg-darker { background: #0f0f0f; }
+        
+        header { position: sticky; top: 0; z-index: 1000; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); }
+        
+        .hero-section {
+            background-image: url('https://ninarkotikam.com/wp-content/uploads/2025/10/IMG_7491.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.6));
+        }
+        
+        .countdown-timer { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .countdown-item { text-align: center; }
+        .countdown-number { font-size: 2.5rem; font-weight: 700; color: #ff6b35; }
+        .countdown-label { font-size: 0.75rem; color: #999; text-transform: uppercase; }
+        
+        .lang-switcher { display: flex; gap: 0.5rem; }
+        .lang-btn { padding: 0.25rem 0.75rem; cursor: pointer; opacity: 0.6; transition: all 0.3s; border-radius: 0.25rem; font-weight: 600; }
+        .lang-btn:hover { opacity: 0.8; }
+        .lang-btn.active { opacity: 1; color: #ff6b35; border-bottom: 2px solid #ff6b35; }
+        
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.9); }
+        .modal.active { display: flex; align-items: center; justify-content: center; }
+        .modal-content { background-color: #1a1a1a; margin: 1rem; padding: 2rem; border: 1px solid #333; border-radius: 1rem; width: 90%; max-width: 900px; max-height: 85vh; overflow-y: auto; position: relative; }
+        .close { color: #aaa; float: right; font-size: 32px; font-weight: bold; cursor: pointer; transition: color 0.3s; line-height: 1; }
+        .close:hover, .close:focus { color: #ff6b35; }
+        
+        .carousel { position: relative; overflow: hidden; margin: 2rem 0; }
+        .carousel-container { display: flex; transition: transform 0.5s ease; }
+        .carousel-item { 
+            min-width: 100%; 
+            padding: 2rem; 
+            box-sizing: border-box;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+        }
+        .carousel-nav { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
+        .carousel-dot { width: 12px; height: 12px; border-radius: 50%; background: #333; cursor: pointer; transition: all 0.3s; }
+        .carousel-dot.active { background: #ff6b35; transform: scale(1.3); }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 107, 53, 0.8);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .carousel-btn:hover { background: rgba(255, 107, 53, 1); }
+        .carousel-btn.prev { left: 10px; }
+        .carousel-btn.next { right: 10px; }
+        
+        @media (max-width: 768px) {
+            .hero-section { min-height: 80vh; }
+            .countdown-timer { gap: 0.75rem; }
+            .countdown-number { font-size: 2rem; }
+            .carousel-btn { width: 40px; height: 40px; padding: 0.5rem; font-size: 1.2rem; }
+            .carousel-btn.prev { left: 5px; }
+            .carousel-btn.next { right: 5px; }
+            .carousel-item { padding: 1rem; min-height: 400px; }
+            h1 { font-size: 2.5rem !important; }
+            h2 { font-size: 2rem !important; }
+        }
+        
+        @media (max-width: 480px) {
+            .countdown-number { font-size: 1.5rem; }
+            .countdown-label { font-size: 0.65rem; }
+            .carousel-item { padding: 0.75rem; min-height: 450px; }
+            h1 { font-size: 2rem !important; }
+        }
+        
+        @media (max-width: 360px) {
+            .carousel-item { min-height: 500px; }
+        }
+    </style>
+
+</head>
+<body>
+    <header class="py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xl md:text-2xl font-bold">
+                <span class="lang-content" data-lang="uk">Павло Казар'ян</span>
+                <span class="lang-content hidden" data-lang="ru">Павел Казарьян</span>
+            </div>
+            <nav class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#problem" class="hover:text-orange transition-colors">
+                    <span class="lang-content" data-lang="uk">Для кого</span>
+                    <span class="lang-content hidden" data-lang="ru">Для кого</span>
+                </a>
+                <a href="#modules" class="hover:text-orange transition-colors">
+                    <span class="lang-content" data-lang="uk">Програма</span>
+                    <span class="lang-content hidden" data-lang="ru">Программа</span>
+                </a>
+                <a href="#about" class="hover:text-orange transition-colors">
+                    <span class="lang-content" data-lang="uk">Про мене</span>
+                    <span class="lang-content hidden" data-lang="ru">Обо мне</span>
+                </a>
+                <a href="#faq" class="hover:text-orange transition-colors">FAQ</a>
+                <a href="#testimonials" class="hover:text-orange transition-colors">
+                    <span class="lang-content" data-lang="uk">Відгуки</span>
+                    <span class="lang-content hidden" data-lang="ru">Отзывы</span>
+                </a>
+            </nav>
+            <div class="lang-switcher text-sm">
+                <span class="lang-btn active" data-lang="uk">UA</span>
+                <span class="lang-btn" data-lang="ru">RU</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 py-20 relative z-10 w-full">
+            <div class="max-w-2xl ml-0">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    <span class="lang-content" data-lang="uk">БАТЬКІВСЬКІ<br>ДИРЕКТИВИ</span>
+                    <span class="lang-content hidden" data-lang="ru">РОДИТЕЛЬСКИЕ<br>ДИРЕКТИВЫ</span>
+                </h1>
+                <p class="text-xl mb-8 text-gray-300 leading-relaxed">
+                    <span class="lang-content" data-lang="uk">Ти дорослий, але досі чуєш у голові чужі слова: „Не можна", „Ти повинен", „З тебе нічого не вийде"…</span>
+                    <span class="lang-content hidden" data-lang="ru">Ты взрослый, но до сих пор слышишь в голове чужие слова: «Нельзя», «Ты должен», «Из тебя ничего не выйдет»…</span>
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="window.open('https://t.me/ClubTransformation_Bot?start=threads_course','_blank')" class="accent-orange accent-orange-hover px-8 py-4 rounded-full font-semibold text-white transition-all">
+                        <span class="lang-content" data-lang="uk">ПРИЄДНАТИСЯ</span>
+                        <span class="lang-content hidden" data-lang="ru">ПРИСОЕДИНИТЬСЯ</span>
+                    </button>
+                    <button onclick="document.getElementById('problem').scrollIntoView({behavior: 'smooth'})" class="bg-transparent border-2 border-white px-8 py-4 rounded-full font-semibold text-white hover:bg-white hover:text-black transition-all">
+                        <span class="lang-content" data-lang="uk">ДІЗНАТИСЯ БІЛЬШЕ</span>
+                        <span class="lang-content hidden" data-lang="ru">УЗНАТЬ БОЛЬШЕ</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="problem" class="py-20 bg-darker">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 max-w-5xl mx-auto">
+                <p class="text-2xl md:text-3xl font-semibold text-white mb-6 leading-relaxed">
+                    <span class="lang-content" data-lang="uk">Твоє життя керується <span class="text-orange">невидимими сценаріями</span>, закладеними ще в дитинстві</span>
+                    <span class="lang-content hidden" data-lang="ru">Твоя жизнь управляется <span class="text-orange">невидимыми сценариями</span>, заложенными ещё в детстве</span>
+                </p>
+                <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">
+                    <span class="lang-content" data-lang="uk">Батьківські директиви — це не просто слова. Це <span class="font-semibold text-white">глибокі підсвідомі програми</span>, що впливають на кожне твоє рішення, стосунки, фінансовий успіх і відчуття щастя</span>
+                    <span class="lang-content hidden" data-lang="ru">Родительские директивы — это не просто слова. Это <span class="font-semibold text-white">глубокие подсознательные программы</span>, влияющие на каждое твоё решение, отношения, финансовый успех и ощущение счастья</span>
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="bg-dark-card p-8 rounded-2xl">
+                    <div class="mb-4">
+                        <svg class="w-16 h-16 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-orange">
+                        <span class="lang-content" data-lang="uk">Що ти відчуваєш:</span>
+                        <span class="lang-content hidden" data-lang="ru">Что ты чувствуешь:</span>
+                    </h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><span class="lang-content" data-lang="uk">✗ Постійне почуття провини без причини</span><span class="lang-content hidden" data-lang="ru">✗ Постоянное чувство вины без причины</span></li>
+                        <li><span class="lang-content" data-lang="uk">✗ Страх робити те, що насправді хочеш</span><span class="lang-content hidden" data-lang="ru">✗ Страх делать то, что на самом деле хочешь</span></li>
+                        <li><span class="lang-content" data-lang="uk">✗ Неможливість будувати здорові стосунки</span><span class="lang-content hidden" data-lang="ru">✗ Невозможность строить здоровые отношения</span></li>
+                        <li><span class="lang-content" data-lang="uk">✗ Відчуття, що живеш «не своє життя»</span><span class="lang-content hidden" data-lang="ru">✗ Ощущение, что живёшь «не свою жизнь»</span></li>
+                        <li><span class="lang-content" data-lang="uk">✗ Саботаж власного успіху на злеті</span><span class="lang-content hidden" data-lang="ru">✗ Саботаж собственного успеха на взлёте</span></li>
+                        <li><span class="lang-content" data-lang="uk">✗ Повторення одних і тих же помилок</span><span class="lang-content hidden" data-lang="ru">✗ Повторение одних и тех же ошибок</span></li>
+                    </ul>
+                </div>
+                <div class="bg-dark-card p-8 rounded-2xl">
+                    <div class="mb-4">
+                        <svg class="w-16 h-16 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-orange">
+                        <span class="lang-content" data-lang="uk">Звідки це береться:</span>
+                        <span class="lang-content hidden" data-lang="ru">Откуда это берётся:</span>
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        <span class="lang-content" data-lang="uk">У віці від 0 до 7 років твій мозок працював у режимі «губки» - поглинав усе без фільтрів. Усі слова батьків, їхні реакції, емоції - стали твоїми внутрішніми законами.</span>
+                        <span class="lang-content hidden" data-lang="ru">В возрасте от 0 до 7 лет твой мозг работал в режиме «губки» - впитывал всё без фильтров. Все слова родителей, их реакции, эмоции - стали твоими внутренними законами.</span>
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Тепер ці директиви керують тобою на підсвідомому рівні. Ти можеш не розуміти, чому приймаєш ті чи інші рішення, але саме вони диктують твої вибори.</span>
+                        <span class="lang-content hidden" data-lang="ru">Теперь эти директивы управляют тобой на подсознательном уровне. Ты можешь не понимать, почему принимаешь те или иные решения, но именно они диктуют твой выбор.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center" style="margin-bottom: 100px;">
+                <p class="text-2xl font-bold mb-4">
+                    <span class="lang-content" data-lang="uk">Але є хороша новина:</span>
+                    <span class="lang-content hidden" data-lang="ru">Но есть хорошая новость:</span>
+                </p>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    <span class="lang-content" data-lang="uk">Усе, що було запрограмовано - можна перепрограмувати. І для цього не потрібні роки терапії. Потрібні правильні техніки та усвідомлення.</span>
+                    <span class="lang-content hidden" data-lang="ru">Всё, что было запрограммировано - можно перепрограммировать. И для этого не нужны годы терапии. Нужны правильные техники и осознание.</span>
+                </p>
+            </div>
+        </div>
+<section class="flex items-center justify-center text-center bg-black text-white">
+    <div class="max-w-3xl px-6" style="margin: 150px 0px;">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            <span class="lang-content" data-lang="uk">
+                Готовий звільнитися від <span class="text-orange">чужих сценаріїв?</span>
+            </span>
+            <span class="lang-content hidden" data-lang="ru">
+                Готов освободиться от <span class="text-orange">чужих сценариев?</span>
+            </span>
+        </h2>
+
+        <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+            <span class="lang-content" data-lang="uk">
+                Не відкладай своє життя на потім. Кожен день під контролем батьківських директив — це день не твого життя.
+            </span>
+            <span class="lang-content hidden" data-lang="ru">
+                Не откладывай свою жизнь на потом. Каждый день под контролем родительских директив — это день не твоей жизни.
+            </span>
+        </p>
+
+        <button onclick="window.open('https://t.me/ClubTransformation_Bot?start=threads_course','_blank')" class="accent-orange accent-orange-hover px-10 py-4 rounded-full font-bold text-white text-lg transition-all">
+            <span class="lang-content" data-lang="uk">ЗАПИСАТИСЯ НА КУРС</span>
+            <span class="lang-content hidden" data-lang="ru">ЗАПИСАТЬСЯ НА КУРС</span>
+        </button>
+    </div>
+</section>
+
+
+    <section id="perfect-for" class="py-20 bg-darker">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center">
+                <span class="lang-content text-orange" data-lang="uk">ДЛЯ КОГО</span>
+                <span class="lang-content text-orange hidden" data-lang="ru">ДЛЯ КОГО</span>
+                <span class="lang-content" data-lang="uk"> ЦЕЙ КУРС:</span>
+                <span class="lang-content hidden" data-lang="ru"> ЭТОТ КУРС:</span>
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+                <div class="bg-dark-card p-8 rounded-2xl hover:scale-105 transition-transform">
+                    <div class="text-5xl font-bold text-orange mb-4">01.</div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="lang-content" data-lang="uk">Для шукачів себе</span>
+                        <span class="lang-content hidden" data-lang="ru">Для ищущих себя</span>
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Ти наче живеш на автопілоті. Робота, обов'язки, стосунки - але відчуття, що це не твоє.</span>
+                        <span class="lang-content hidden" data-lang="ru">Ты словно живешь на автопилоте. Работа, обязанности, отношения - но ощущение, что это не твое.</span>
+                    </p>
+                </div>
+
+                <div class="bg-dark-card p-8 rounded-2xl hover:scale-105 transition-transform">
+                    <div class="text-5xl font-bold text-orange mb-4">02.</div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="lang-content" data-lang="uk">Дослідників власних сценаріїв</span>
+                        <span class="lang-content hidden" data-lang="ru">Исследователей собственных сценариев</span>
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Твої вибори часто продиктовані чужими словами. «Не можна», «ти повинен», «ти не зможеш».</span>
+                        <span class="lang-content hidden" data-lang="ru">Твои выборы часто продиктованы чужими словами. «Нельзя», «ты должен», «ты не сможешь».</span>
+                    </p>
+                </div>
+
+                <div class="accent-orange p-8 rounded-2xl hover:scale-105 transition-transform">
+                    <div class="text-5xl font-bold text-white mb-4">03.</div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="lang-content" data-lang="uk">Для тих, хто прагне свободи у стосунках</span>
+                        <span class="lang-content hidden" data-lang="ru">Для тех, кто стремится к свободе в отношениях</span>
+                    </h3>
+                    <p class="text-white leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Ти повторюєш помилки батьків? Ми перепишемо внутрішній сценарій.</span>
+                        <span class="lang-content hidden" data-lang="ru">Ты повторяешь ошибки родителей? Мы перепишем внутренний сценарий.</span>
+                    </p>
+                </div>
+
+                <div class="accent-orange p-8 rounded-2xl hover:scale-105 transition-transform">
+                    <div class="text-5xl font-bold text-white mb-4">04.</div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="lang-content" data-lang="uk">Для людей, які живуть із відчуттям провини</span>
+                        <span class="lang-content hidden" data-lang="ru">Для людей, живущих с чувством вины</span>
+                    </h3>
+                    <p class="text-white leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Тобі важко сказати «ні»? Тут ти навчишся ставити межі без страху і жити без постійної провини.</span>
+                        <span class="lang-content hidden" data-lang="ru">Тебе трудно сказать "нет"? Здесь ты научишься ставить границы без страха и жить без постоянной вины.</span>
+                    </p>
+                </div>
+
+                <div class="bg-dark-card p-8 rounded-2xl hover:scale-105 transition-transform">
+                    <div class="text-5xl font-bold text-orange mb-4">05.</div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="lang-content" data-lang="uk">Для тих, хто будує кар’єру та стискається з внутрішніми блоками</span>
+                        <span class="lang-content hidden" data-lang="ru">Для тех, кто строит карьеру и сжимается с внутренними блоками</span>
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Успіх приходить, але радості немає? Курс допоможе прибрати ці невидимі стопи та вийти на новий рівень.</span>
+                        <span class="lang-content hidden" data-lang="ru">Успех приходит, но радости нет? Курс поможет убрать эти невидимые стопы и выйти на новый уровень.</span>
+                    </p>
+                </div>
+
+                <div class="bg-dark-card p-8 rounded-2xl hover:scale-105 transition-transform">
+                    <div class="text-5xl font-bold text-orange mb-4">06.</div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="lang-content" data-lang="uk">Для тих, хто хоче гармонії в грошах й цілях</span>
+                        <span class="lang-content hidden" data-lang="ru">Для тех, кто хочет гармонии в деньгах и целях</span>
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Ти навчишся формувати власний фінансовий сценарій без родових заборон.</span>
+                        <span class="lang-content hidden" data-lang="ru">Ты научишься формировать свой финансовый сценарий без родовых запретов.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-dark-card">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <p class="text-orange text-sm font-semibold uppercase tracking-wider mb-2">
+                    <span class="lang-content" data-lang="uk">ВЕДУЧИЙ КУРСУ</span>
+                    <span class="lang-content hidden" data-lang="ru">ВЕДУЩИЙ КУРСА</span>
+                </p>
+                <div class="flex justify-center mb-6">
+                    <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-orange shadow-2xl">
+                        <img src="https://djerelo-hub.github.io/center-djerelo/img/Pasha3.JPG" alt="Павло Казар'ян — психолог, психотерапевт" loading="lazy" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <h2 class="text-5xl font-bold mb-4">
+                    <span class="lang-content" data-lang="uk">Павло Казар'ян</span>
+                    <span class="lang-content hidden" data-lang="ru">Павел Казарьян</span>
+                </h2>
+                <p class="text-xl text-gray-400">
+                    <span class="lang-content" data-lang="uk">Психолог, психотерапевт, нейрокоуч, бізнес-тренер</span>
+                    <span class="lang-content hidden" data-lang="ru">Психолог, психотерапевт, нейрокоуч, бизнес-тренер</span>
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 mt-16">
+                <div class="bg-darker p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-orange">
+                        <span class="lang-content" data-lang="uk">Освіта</span>
+                        <span class="lang-content hidden" data-lang="ru">Образование</span>
+                    </h3>
+                    <ul class="space-y-4 text-gray-300 leading-relaxed">
+                        <li>
+                            <strong>НДУ ім. Сухомлинського</strong><br>
+                            <span class="lang-content" data-lang="uk">Магістр практичної психології</span>
+                            <span class="lang-content hidden" data-lang="ru">Магистр практической психологии</span>
+                        </li>
+                        <li>
+                            <strong>МКУ ім. Ф. Орлика</strong><br>
+                            <span class="lang-content" data-lang="uk">Фізичний терапевт, ерготерапевт</span>
+                            <span class="lang-content hidden" data-lang="ru">Физический терапевт, эрготерапевт</span>
+                        </li>
+                        <li>
+                            <strong class="text-orange">Сертифікації та спеціалізації:</strong><br>
+                            <span class="lang-content" data-lang="uk">• НЛП-тренер (META International Inc.)<br>
+                            • Майстер транзактного аналізу<br>
+                            • Сертифікований гештальт-терапевт<br>
+                            • Нейрокоуч та бізнес-тренер<br>
+                            • Спеціаліст з психосоматики та тілесних практик</span>
+                            <span class="lang-content hidden" data-lang="ru">• НЛП-тренер (META International Inc.)<br>
+                            • Мастер транзактного анализа<br>
+                            • Сертифицированный гештальт-терапевт<br>
+                            • Нейрокоуч и бизнес-тренер<br>
+                            • Специалист по психосоматике и телесным практикам</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-darker p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-orange">
+                        <span class="lang-content" data-lang="uk">Досягнення</span>
+                        <span class="lang-content hidden" data-lang="ru">Достижения</span>
+                    </h3>
+                    <ul class="space-y-3 text-gray-300 leading-relaxed">
+                        <li><span class="lang-content" data-lang="uk">• <strong>Понад 20 років практики</strong> у психології, коучингу й трансформаційних методиках</span><span class="lang-content hidden" data-lang="ru">• <strong>Более 20 лет практики</strong> в психологии, коучинге и трансформационных методиках</span></li>
+                        <li><span class="lang-content" data-lang="uk">• <strong>20,000+ учасників</strong> пройшли його курси й отримали реальні результати</span><span class="lang-content hidden" data-lang="ru">• <strong>20,000+ участников</strong> прошли его курсы и получили реальные результаты</span></li>
+                        <li><span class="lang-content" data-lang="uk">• <strong>25,000+ живих сесій</strong> - онлайн-зустрічі, присвячені практичним інструментам</span><span class="lang-content hidden" data-lang="ru">• <strong>25,000+ живых сессий</strong> - онлайн-встречи, посвященные практическим инструментам</span></li>
+                        <li><span class="lang-content" data-lang="uk">• <strong>Міжнародна спільнота</strong> - учасники з 15+ країн світу</span><span class="lang-content hidden" data-lang="ru">• <strong>Международное сообщество</strong> - участники из 15+ стран мира</span></li>
+                        <li><span class="lang-content" data-lang="uk">• Автор унікальних методик роботи з батьківськими директивами та підсвідомими програмами</span><span class="lang-content hidden" data-lang="ru">• Автор уникальных методик работы с родительскими директивами и подсознательными программами</span></li>
+                        <li><span class="lang-content" data-lang="uk">• Експерт у трансформації глибинних психологічних патернів та сценаріїв</span><span class="lang-content hidden" data-lang="ru">• Эксперт в трансформации глубинных психологических паттернов и сценариев</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6 mt-16">
+                <div class="bg-darker p-6 rounded-2xl text-center border-2 border-orange hover:scale-105 transition-transform">
+                    <div class="text-5xl font-bold text-orange mb-2">20+</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wide">
+                        <span class="lang-content" data-lang="uk">років досвіду</span>
+                        <span class="lang-content hidden" data-lang="ru">лет опыта</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">
+                        <span class="lang-content" data-lang="uk">Практика у психології, коучингу й трансформаційних методиках</span>
+                        <span class="lang-content hidden" data-lang="ru">Практика в психологии, коучинге и трансформационных методиках</span>
+                    </p>
+                </div>
+                <div class="bg-darker p-6 rounded-2xl text-center border-2 border-orange hover:scale-105 transition-transform">
+                    <div class="text-5xl font-bold text-orange mb-2">20.1k</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wide">
+                        <span class="lang-content" data-lang="uk">учасників</span>
+                        <span class="lang-content hidden" data-lang="ru">участников</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">
+                        <span class="lang-content" data-lang="uk">Люди, які вже пройшли мої курси й отримали реальні результати</span>
+                        <span class="lang-content hidden" data-lang="ru">Люди, которые уже прошли мои курсы и получили реальные результаты</span>
+                    </p>
+                </div>
+                <div class="bg-darker p-6 rounded-2xl text-center border-2 border-orange hover:scale-105 transition-transform">
+                    <div class="text-5xl font-bold text-orange mb-2">25K</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wide">
+                        <span class="lang-content" data-lang="uk">живих сесій</span>
+                        <span class="lang-content hidden" data-lang="ru">живых сессий</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">
+                        <span class="lang-content" data-lang="uk">Онлайн-зустрічі, присвячені практичним інструментам</span>
+                        <span class="lang-content hidden" data-lang="ru">Онлайн-встречи, посвященные практическим инструментам</span>
+                    </p>
+                </div>
+                <div class="bg-darker p-6 rounded-2xl text-center border-2 border-orange hover:scale-105 transition-transform">
+                    <div class="text-5xl font-bold text-orange mb-2">15+</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wide">
+                        <span class="lang-content" data-lang="uk">країн</span>
+                        <span class="lang-content hidden" data-lang="ru">стран</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">
+                        <span class="lang-content" data-lang="uk">Міжнародна спільнота учасників</span>
+                        <span class="lang-content hidden" data-lang="ru">Международное сообщество участников</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-darker">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center">
+                <span class="lang-content" data-lang="uk">Питання та <span class="text-orange">відповіді</span></span>
+                <span class="lang-content hidden" data-lang="ru">Вопросы и <span class="text-orange">ответы</span></span>
+            </h2>
+            <p class="text-center text-gray-400 mb-12">
+                <span class="lang-content" data-lang="uk">Відповіді на найпопулярніші питання про курс</span>
+                <span class="lang-content hidden" data-lang="ru">Ответы на самые популярные вопросы о курсе</span>
+            </p>
+            <div class="space-y-4">
+                <details class="bg-dark-card p-6 rounded-xl">
+                    <summary class="font-bold text-lg cursor-pointer hover:text-orange transition-colors">
+                        <span class="lang-content" data-lang="uk">1. Що таке батьківські директиви і як вони впливають на моє життя?</span>
+                        <span class="lang-content hidden" data-lang="ru">1. Что такое родительские директивы и как они влияют на мою жизнь?</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Батьківські директиви - це підсвідомі програми, закладені в дитинстві через слова, реакції та поведінку батьків. Вони формують ваші переконання про себе, стосунки, успіх та світ загалом. Ці директиви діють на автопілоті, змушуючи вас повторювати одні й ті самі патерни поведінки, навіть якщо вони вам шкодять. Наприклад, директива «Не будь щасливим» може змушувати вас саботувати успіх саме тоді, коли все налагоджується.</span>
+                        <span class="lang-content hidden" data-lang="ru">Родительские директивы - это подсознательные программы, заложенные в детстве через слова, реакции и поведение родителей. Они формируют ваши убеждения о себе, отношениях, успехе и мире в целом. Эти директивы действуют на автопилоте, заставляя вас повторять одни и те же паттерны поведения, даже если они вам вредят. Например, директива «Не будь счастливым» может заставлять вас саботировать успех именно тогда, когда всё налаживается.</span>
+                    </p>
+                </details>
+
+                <details class="bg-dark-card p-6 rounded-xl">
+                    <summary class="font-bold text-lg cursor-pointer hover:text-orange transition-colors">
+                        <span class="lang-content" data-lang="uk">2. Скільки часу потрібно на проходження курсу?</span>
+                        <span class="lang-content hidden" data-lang="ru">2. Сколько времени нужно на прохождение курса?</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Курс складається з 16 детальних уроків. Рекомендований темп - 2-3 уроки на тиждень, що дозволяє глибоко опрацювати матеріал та впровадити техніки в життя. Загалом курс розрахований на 6-8 тижнів активної роботи. Але ви отримуєте довічний доступ до всіх матеріалів, тому можете проходити його в комфортному для вас темпі і повертатися до уроків у будь-який час.</span>
+                        <span class="lang-content hidden" data-lang="ru">Курс состоит из 16 детальных уроков. Рекомендуемый темп - 2-3 урока в неделю, что позволяет глубоко проработать материал и внедрить техники в жизнь. В целом курс рассчитан на 6-8 недель активной работы. Но вы получаете пожизненный доступ ко всем материалам, поэтому можете проходить его в комфортном для вас темпе и возвращаться к урокам в любое время.</span>
+                    </p>
+                </details>
+
+                <details class="bg-dark-card p-6 rounded-xl">
+                    <summary class="font-bold text-lg cursor-pointer hover:text-orange transition-colors">
+                        <span class="lang-content" data-lang="uk">3. Чи потрібні попередні знання в психології?</span>
+                        <span class="lang-content hidden" data-lang="ru">3. Нужны ли предварительные знания в психологии?</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Абсолютно ні! Курс створений так, щоб бути зрозумілим для кожного, незалежно від освіти чи досвіду. Всі концепції пояснюються простою мовою з конкретними життєвими прикладами. Головне - ваше бажання змінитися та готовність чесно працювати з собою. Теорія в курсі подається мінімально, фокус на практичних техніках, які можна застосовувати одразу.</span>
+                        <span class="lang-content hidden" data-lang="ru">Абсолютно нет! Курс создан так, чтобы быть понятным для каждого, независимо от образования или опыта. Все концепции объясняются простым языком с конкретными жизненными примерами. Главное - ваше желание измениться и готовность честно работать с собой. Теория в курсе подаётся минимально, фокус на практических техниках, которые можно применять сразу.</span>
+                    </p>
+                </details>
+
+                <details class="bg-dark-card p-6 rounded-xl">
+                    <summary class="font-bold text-lg cursor-pointer hover:text-orange transition-colors">
+                        <span class="lang-content" data-lang="uk">4. Що робити, якщо курс мені не підійде?</span>
+                        <span class="lang-content hidden" data-lang="ru">4. Что делать, если курс мне не подойдет?</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">У нас діє 14-денна гарантія повернення коштів без зайвих питань. Якщо протягом перших двох тижнів ви зрозумієте, що курс вам не підходить - просто напишіть нам, і ми повернемо 100% вартості. Жодних складних процедур чи обґрунтувань не потрібно. Ми впевнені в якості нашого продукту, але розуміємо, що кожна людина унікальна, і те, що підходить одним, може не підійти іншим.</span>
+                        <span class="lang-content hidden" data-lang="ru">У нас действует 14-дневная гарантия возврата средств без лишних вопросов. Если в течение первых двух недель вы поймёте, что курс вам не подходит - просто напишите нам, и мы вернём 100% стоимости. Никаких сложных процедур или обоснований не нужно. Мы уверены в качестве нашего продукта, но понимаем, что каждый человек уникален, и то, что подходит одним, может не подойти другим.</span>
+                    </p>
+                </details>
+
+                <details class="bg-dark-card p-6 rounded-xl">
+                    <summary class="font-bold text-lg cursor-pointer hover:text-orange transition-colors">
+                        <span class="lang-content" data-lang="uk">5. Як проходить навчання? Це відео, текст чи щось інше?</span>
+                        <span class="lang-content hidden" data-lang="ru">5. Как проходит обучение? Это видео, текст или что-то другое?</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Курс включає відеоуроки з детальними поясненнями, практичні вправи для самостійної роботи, робочі зошити у форматі PDF, аудіомедитації для закріплення змін на підсвідомому рівні, та чек-листи для відстеження прогресу. Кожен урок побудований так: теорія (10-15 хв) → практика (20-30 хв) → інтеграція в життя. Всі матеріали доступні 24/7 з будь-якого пристрою.</span>
+                        <span class="lang-content hidden" data-lang="ru">Курс включает видеоуроки с детальными объяснениями, практические упражнения для самостоятельной работы, рабочие тетради в формате PDF, аудиомедитации для закрепления изменений на подсознательном уровне, и чек-листы для отслеживания прогресса. Каждый урок построен так: теория (10-15 мин) → практика (20-30 мин) → интеграция в жизнь. Все материалы доступны 24/7 с любого устройства.</span>
+                    </p>
+                </details>
+
+                <details class="bg-dark-card p-6 rounded-xl">
+                    <summary class="font-bold text-lg cursor-pointer hover:text-orange transition-colors">
+                        <span class="lang-content" data-lang="uk">6. Чи можна працювати з важкими травмами на цьому курсі?</span>
+                        <span class="lang-content hidden" data-lang="ru">6. Можно ли работать с тяжелыми травмами на этом курсе?</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Курс ефективний для роботи з батьківськими директивами та патернами поведінки. Однак, якщо у вас є важкі психологічні травми, ПТСР чи інші серйозні стани - курс краще проходити паралельно з індивідуальною терапією. Ми надаємо потужні інструменти для трансформації, але вони не замінюють професійну допомогу в кризових ситуаціях. Курс ідеально підходить для тих, хто хоче розібратися зі своїми патернами та жити більш усвідомлене життя.</span>
+                        <span class="lang-content hidden" data-lang="ru">Курс эффективен для работы с родительскими директивами и паттернами поведения. Однако, если у вас есть тяжелые психологические травмы, ПТСР или другие серьезные состояния - курс лучше проходить параллельно с индивидуальной терапией. Мы предоставляем мощные инструменты для трансформации, но они не заменяют профессиональную помощь в кризисных ситуациях. Курс идеально подходит для тех, кто хочет разобраться со своими паттернами и жить более осознанную жизнь.</span>
+                    </p>
+                </details>
+
+                <details class="bg-dark-card p-6 rounded-xl">
+                    <summary class="font-bold text-lg cursor-pointer hover:text-orange transition-colors">
+                        <span class="lang-content" data-lang="uk">7. Чи буде підтримка викладача під час курсу?</span>
+                        <span class="lang-content hidden" data-lang="ru">7. Будет ли поддержка преподавателя во время курса?</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Так! Ви отримуєте доступ до закритої спільноти учасників курсу, де можна ставити питання, ділитися досвідом та отримувати підтримку. Павло Казар'ян особисто відповідає на питання у спільноті 2 рази на тиждень. Також передбачені щомісячні групові Q&A сесії в прямому ефірі, де ви можете отримати відповіді на свої питання та розібрати складні моменти. Для тих, хто потребує більше уваги, є можливість придбати пакет індивідуальних консультацій.</span>
+                        <span class="lang-content hidden" data-lang="ru">Да! Вы получаете доступ к закрытому сообществу участников курса, где можно задавать вопросы, делиться опытом и получать поддержку. Павел Казарян лично отвечает на вопросы в сообществе 2 раза в неделю. Также предусмотрены ежемесячные групповые Q&A сессии в прямом эфире, где вы можете получить ответы на свои вопросы и разобрать сложные моменты. Для тех, кто нуждается в большем внимании, есть возможность приобрести пакет индивидуальных консультаций.</span>
+                    </p>
+                </details>
+
+                <details class="bg-dark-card p-6 rounded-xl">
+                    <summary class="font-bold text-lg cursor-pointer hover:text-orange transition-colors">
+                        <span class="lang-content" data-lang="uk">8. Як швидко я побачу результати?</span>
+                        <span class="lang-content hidden" data-lang="ru">8. Как быстро я увижу результаты?</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Перші зміни ви помітите вже після 2-3 уроків - зросте усвідомленість того, що з вами відбувається та чому. Відчутні зміни в поведінці та реакціях з'являються через 3-4 тижні регулярної практики. Глибока трансформація патернів потребує 2-3 місяців послідовної роботи. Але пам'ятайте: швидкість змін залежить від вашої готовності чесно працювати з собою. Хтось відчує зрушення швидше, комусь знадобиться більше часу - і це абсолютно нормально.</span>
+                        <span class="lang-content hidden" data-lang="ru">Первые изменения вы заметите уже после 2-3 уроков - возрастёт осознанность того, что с вами происходит и почему. Ощутимые изменения в поведении и реакциях появляются через 3-4 недели регулярной практики. Глубокая трансформация паттернов требует 2-3 месяцев последовательной работы. Но помните: скорость изменений зависит от вашей готовности честно работать с собой. Кто-то почувствует сдвиги быстрее, кому-то понадобится больше времени - и это абсолютно нормально.</span>
+                    </p>
+                </details>
+
+                <details class="bg-dark-card p-6 rounded-xl">
+                    <summary class="font-bold text-lg cursor-pointer hover:text-orange transition-colors">
+                        <span class="lang-content" data-lang="uk">9. Чи можу я проходити курс разом з партнером?</span>
+                        <span class="lang-content hidden" data-lang="ru">9. Могу ли я проходить курс вместе с партнером?</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Так, і це навіть рекомендується! Багато пар проходять курс разом і це значно посилює ефект - ви краще розумієте один одного, бачите корені конфліктів та можете підтримувати один одного в процесі змін. Проте кожен учасник повинен мати окремий доступ до курсу, щоб працювати з особистими директивами у власному темпі. Для пар у нас є спеціальна знижка 25% на другий доступ - напишіть нам після покупки.</span>
+                        <span class="lang-content hidden" data-lang="ru">Да, и это даже рекомендуется! Многие пары проходят курс вместе, и это значительно усиливает эффект - вы лучше понимаете друг друга, видите корни конфликтов и можете поддерживать друг друга в процессе изменений. Однако каждый участник должен иметь отдельный доступ к курсу, чтобы работать с личными директивами в собственном темпе. Для пар у нас есть специальная скидка 25% на второй доступ - напишите нам после покупки.</span>
+                    </p>
+                </details>
+
+                <details class="bg-dark-card p-6 rounded-xl">
+                    <summary class="font-bold text-lg cursor-pointer hover:text-orange transition-colors">
+                        <span class="lang-content" data-lang="uk">10. Що відрізняє цей курс від інших програм з психології?</span>
+                        <span class="lang-content hidden" data-lang="ru">10. Что отличает этот курс от других программ по психологии?</span>
+                    </summary>
+                    <p class="mt-4 text-gray-300 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">Цей курс фокусується конкретно на батьківських директивах - найглибших підсвідомих програмах, які керують вашим життям. Ми не розмиваємо увагу на десятки тем, а йдемо в глибину однієї критично важливої. Курс побудований на поєднанні транзактного аналізу, гештальт-терапії та сучасних нейронаукових досліджень. Але головне - це не теорія заради теорії, а максимум практики. 80% часу ви працюєте з собою через конкретні техніки, які змінюють підсвідомі патерни. Плюс особистий досвід Павла та сотні успішних випадків студентів.</span>
+                        <span class="lang-content hidden" data-lang="ru">Этот курс фокусируется конкретно на родительских директивах - самых глубоких подсознательных программах, которые управляют вашей жизнью. Мы не размываем внимание на десятки тем, а идём вглубь одной критически важной. Курс построен на сочетании транзактного анализа, гештальт-терапии и современных нейронаучных исследований. Но главное - это не теория ради теории, а максимум практики. 80% времени вы работаете с собой через конкретные техники, которые изменяют подсознательные паттерны. Плюс личный опыт Павла и сотни успешных кейсов студентов.</span>
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-darker">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="lang-content" data-lang="uk">Понад <span class="text-orange">1,000+</span> людей</span>
+                    <span class="lang-content hidden" data-lang="ru">Более <span class="text-orange">1,000+</span> людей</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    <span class="lang-content" data-lang="uk">вже пройшли трансформацію й побачили результат</span>
+                    <span class="lang-content hidden" data-lang="ru">уже прошли трансформацию и увидели результат</span>
+                </p>
+            </div>
+            <div class="bg-dark-card p-8 md:p-12 rounded-3xl max-w-4xl mx-auto">
+                <p class="text-xl md:text-2xl text-center text-gray-300 leading-relaxed mb-12">
+                    <span class="lang-content" data-lang="uk">Це не просто теорія - це система, яка працює. Кожен урок дає конкретні інструменти, які одразу змінюють життя: у стосунках, грошах, особистих рішеннях</span>
+                    <span class="lang-content hidden" data-lang="ru">Это не просто теория - это система, которая работает. Каждый урок дает конкретные инструменты, которые сразу меняют жизнь: в отношениях, деньгах, личных решениях</span>
+                </p>
+                
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="bg-darker p-6 md:p-8 rounded-2xl text-center">
+                    <svg class="w-12 h-12 md:w-16 md:h-16 text-orange mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">
+                        <span class="lang-content" data-lang="uk">Висока результативність</span>
+                        <span class="lang-content hidden" data-lang="ru">Высокая результативность</span>
+                    </h3>
+                    <p class="text-gray-400 text-sm">
+                        <span class="lang-content" data-lang="uk">Понад 90% учасників завершують курс і застосовують техніки у реальному житті</span>
+                        <span class="lang-content hidden" data-lang="ru">Более 90% участников завершают курс и применяют техники в реальной жизни</span>
+                    </p>
+                </div>
+
+                <div class="bg-darker p-6 md:p-8 rounded-2xl text-center">
+                    <svg class="w-12 h-12 md:w-16 md:h-16 text-orange mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">
+                        <span class="lang-content" data-lang="uk">Доведені зміни</span>
+                        <span class="lang-content hidden" data-lang="ru">Доказанные изменения</span>
+                    </h3>
+                    <p class="text-gray-400 text-sm">
+                        <span class="lang-content" data-lang="uk">Люди розривають старі сценарії, виходять із почуття провини та починають будувати власні вибори</span>
+                        <span class="lang-content hidden" data-lang="ru">Люди разрывают старые сценарии, выходят из чувства вины и начинают строить собственные выборы</span>
+                    </p>
+                </div>
+
+                <div class="bg-darker p-6 md:p-8 rounded-2xl text-center">
+                    <svg class="w-12 h-12 md:w-16 md:h-16 text-orange mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">
+                        <span class="lang-content" data-lang="uk">Підтримуюча спільнота</span>
+                        <span class="lang-content hidden" data-lang="ru">Поддерживающее сообщество</span>
+                    </h3>
+                    <p class="text-gray-400 text-sm">
+                        <span class="lang-content" data-lang="uk">Ти не йдеш сам - поруч люди, які теж звільняються від директив і підтримують одне одного</span>
+                        <span class="lang-content hidden" data-lang="ru">Ты не идёшь один - рядом люди, которые тоже освобождаются от директив и поддерживают друг друга</span>
+                    </p>
+                </div>
+
+                <div class="bg-darker p-6 md:p-8 rounded-2xl text-center">
+                    <svg class="w-12 h-12 md:w-16 md:h-16 text-orange mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3 class="text-lg md:text-xl font-bold mb-3">
+                        <span class="lang-content" data-lang="uk">Швидкі результати</span>
+                        <span class="lang-content hidden" data-lang="ru">Быстрые результаты</span>
+                    </h3>
+                    <p class="text-gray-400 text-sm">
+                        <span class="lang-content" data-lang="uk">Більшість учасників відчувають зміни вже у перший тиждень після старту курсу</span>
+                        <span class="lang-content hidden" data-lang="ru">Большинство участников чувствуют изменения уже в первую неделю после старта курса</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-dark-card">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                <span class="lang-content" data-lang="uk">ЧАС <span class="text-orange">СПЛИВАЄ!</span></span>
+                <span class="lang-content hidden" data-lang="ru">ВРЕМЯ <span class="text-orange">ИСТЕКАЕТ!</span></span>
+            </h2>
+            <div class="countdown-timer mb-12">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">0</div>
+                    <div class="countdown-label">
+                        <span class="lang-content" data-lang="uk">Днів</span>
+                        <span class="lang-content hidden" data-lang="ru">Дней</span>
+                    </div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">0</div>
+                    <div class="countdown-label">
+                        <span class="lang-content" data-lang="uk">Годин</span>
+                        <span class="lang-content hidden" data-lang="ru">Часов</span>
+                    </div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">0</div>
+                    <div class="countdown-label">
+                        <span class="lang-content" data-lang="uk">Хвилин</span>
+                        <span class="lang-content hidden" data-lang="ru">Минут</span>
+                    </div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">0</div>
+                    <div class="countdown-label">
+                        <span class="lang-content" data-lang="uk">Секунд</span>
+                        <span class="lang-content hidden" data-lang="ru">Секунд</span>
+                    </div>
+                </div>
+            </div>
+            <button onclick="window.open('https://t.me/ClubTransformation_Bot?start=threads_course','_blank')" class="accent-orange accent-orange-hover px-12 py-5 rounded-full font-bold text-white text-lg transition-all">
+                <span class="lang-content" data-lang="uk">ПРИЄДНАТИСЯ</span>
+                <span class="lang-content hidden" data-lang="ru">ПРИСОЕДИНИТЬСЯ</span>
+            </button>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-20 bg-darker">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center">
+                <span class="lang-content" data-lang="uk">Вражаючі результати <span class="text-orange">моїх студентів</span></span>
+                <span class="lang-content hidden" data-lang="ru">Впечатляющие результаты <span class="text-orange">моих студентов</span></span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-dark-card p-8 rounded-2xl">
+                    <div class="mb-6">
+                        <img src="https://ninarkotikam.com/wp-content/uploads/2025/10/IMAGE-2025-10-08-201046.jpg" alt="Павло Казар'ян — психолог, психотерапевт" loading="lazy" class="w-16 h-16 bg-orange rounded-full flex items-center justify-center text-2xl font-bold mb-4">
+                        <h4 class="font-bold text-xl">
+                            <span class="lang-content" data-lang="uk">Олена, 34 роки</span>
+                            <span class="lang-content hidden" data-lang="ru">Елена, 34 года</span>
+                        </h4>
+                        <p class="text-sm text-gray-500">
+                            <span class="lang-content" data-lang="uk">Маркетолог, Київ</span>
+                            <span class="lang-content hidden" data-lang="ru">Маркетолог, Киев</span>
+                        </p>
+                    </div>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">«Я вперше зрозуміла, що мої постійні почуття провини - це не моя проблема, а батьківські директиви. Все життя я думала, що зі мною щось не так. Після курсу я навчилася розпізнавати ці голоси в голові та замінювати їх на свої власні. Змінилося все - від стосунків до кар'єри. Нарешті відчуваю, що живу своє життя!»</span>
+                        <span class="lang-content hidden" data-lang="ru">«Я впервые поняла, что мои постоянные чувства вины - это не моя проблема, а родительские директивы. Всю жизнь я думала, что со мной что-то не так. После курса я научилась распознавать эти голоса в голове и заменять их на свои собственные. Изменилось всё - от отношений до карьеры. Наконец чувствую, что живу свою жизнь!»</span>
+                    </p>
+                    <div class="flex gap-1 text-orange text-xl">★★★★★</div>
+                </div>
+                <div class="bg-dark-card p-8 rounded-2xl">
+                    <div class="mb-6">
+                        <img src="https://ninarkotikam.com/wp-content/uploads/2025/10/IMAGE-2025-10-08-201048.jpg" alt="Павло Казар'ян — психолог, психотерапевт" loading="lazy" class="w-16 h-16 bg-orange rounded-full flex items-center justify-center text-2xl font-bold mb-4">
+                        <h4 class="font-bold text-xl">
+                            <span class="lang-content" data-lang="uk">Ігор, 41 рік</span>
+                            <span class="lang-content hidden" data-lang="ru">Игорь, 41 год</span>
+                        </h4>
+                        <p class="text-sm text-gray-500">
+                            <span class="lang-content" data-lang="uk">Підприємець, Одеса</span>
+                            <span class="lang-content hidden" data-lang="ru">Предприниматель, Одесса</span>
+                        </p>
+                    </div>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">«Мені вдалося розірвати повторюваний сценарій у стосунках. Тепер бачу їх інакше. Все життя я вибирав партнерок, які повторювали модель моєї матері. Після курсу зрозумів, що директива «Не будь щасливим» керувала моїм життям. Зараз вперше в гармонійних стосунках!»</span>
+                        <span class="lang-content hidden" data-lang="ru">«Мне удалось разорвать повторяющийся сценарий в отношениях. Теперь вижу их иначе. Всю жизнь я выбирал партнёрок, которые повторяли модель моей матери. После курса понял, что директива «Не будь счастливым» управляла моей жизнью. Сейчас впервые в гармоничных отношениях!»</span>
+                    </p>
+                    <div class="flex gap-1 text-orange text-xl">★★★★★</div>
+                </div>
+                <div class="bg-dark-card p-8 rounded-2xl">
+                    <div class="mb-6">
+                        <img src="https://ninarkotikam.com/wp-content/uploads/2025/10/IMAGE-2025-10-08-201042.jpg" alt="Павло Казар'ян — психолог, психотерапевт" loading="lazy" class="w-16 h-16 bg-orange rounded-full flex items-center justify-center text-2xl font-bold mb-4">
+                        <h4 class="font-bold text-xl">
+                            <span class="lang-content" data-lang="uk">Марія, 28 років</span>
+                            <span class="lang-content hidden" data-lang="ru">Мария, 28 лет</span>
+                        </h4>
+                        <p class="text-sm text-gray-500">
+                            <span class="lang-content" data-lang="uk">Дизайнер, Львів</span>
+                            <span class="lang-content hidden" data-lang="ru">Дизайнер, Львов</span>
+                        </p>
+                    </div>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        <span class="lang-content" data-lang="uk">«Після курсу я відчула свободу й впевненість у власних виборах. Це змінило все. Я завжди боялася приймати важливі рішення - спрацьовувала директива «Не роби цього». Після роботи з Павлом я відкрила власну студію, про яку мріяла 5 років. Зараз я щаслива і вільна!»</span>
+                        <span class="lang-content hidden" data-lang="ru">«После курса я почувствовала свободу и уверенность в собственных выборах. Это изменило всё. Я всегда боялась принимать важные решения - срабатывала директива «Не делай этого». После работы с Павлом я открыла собственную студию, о которой мечтала 5 лет. Сейчас я счастлива и свободна!»</span>
+                    </p>
+                    <div class="flex gap-1 text-orange text-xl">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modules" class="py-20 bg-dark-card">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="lang-content" data-lang="uk">Програма курсу <span class="text-orange">"Батьківські Директиви"</span></span>
+                    <span class="lang-content hidden" data-lang="ru">Программа курса <span class="text-orange">"Родительские Директивы"</span></span>
+                </h2>
+                <p class="text-lg text-gray-400 italic">
+                    <span class="lang-content" data-lang="uk">16 уроків практики й технік для глибокої трансформації</span>
+                    <span class="lang-content hidden" data-lang="ru">16 уроков практики и техник для глубокой трансформации</span>
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-darker p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-orange rounded-xl flex items-center justify-center text-2xl font-bold mb-6">1</div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="lang-content" data-lang="uk">Діагностика</span>
+                        <span class="lang-content hidden" data-lang="ru">Диагностика</span>
+                    </h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><span class="lang-content" data-lang="uk">• Як виявити свої «невидимі ниті»</span><span class="lang-content hidden" data-lang="ru">• Как выявить свои «невидимые нити»</span></li>
+                        <li><span class="lang-content" data-lang="uk">• Тести й практики усвідомлення</span><span class="lang-content hidden" data-lang="ru">• Тесты и практики осознания</span></li>
+                    </ul>
+                </div>
+                <div class="bg-darker p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-orange rounded-xl flex items-center justify-center text-2xl font-bold mb-6">2</div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="lang-content" data-lang="uk">Усвідомлення</span>
+                        <span class="lang-content hidden" data-lang="ru">Осознание</span>
+                    </h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><span class="lang-content" data-lang="uk">• Робота з тілом і емоціями</span><span class="lang-content hidden" data-lang="ru">• Работа с телом и эмоциями</span></li>
+                        <li><span class="lang-content" data-lang="uk">• Вихід зі стану провини</span><span class="lang-content hidden" data-lang="ru">• Выход из состояния вины</span></li>
+                    </ul>
+                </div>
+                <div class="bg-darker p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-orange rounded-xl flex items-center justify-center text-2xl font-bold mb-6">3</div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="lang-content" data-lang="uk">Трансформація</span>
+                        <span class="lang-content hidden" data-lang="ru">Трансформация</span>
+                    </h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><span class="lang-content" data-lang="uk">• Розрив старих сценаріїв</span><span class="lang-content hidden" data-lang="ru">• Разрыв старых сценариев</span></li>
+                        <li><span class="lang-content" data-lang="uk">• Створення нового життя</span><span class="lang-content hidden" data-lang="ru">• Создание новой жизни</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="w-blocks-group-wrapper blocks-group-wrapper_2QF"><div id="blockId-67f7694888b5ddfd7512c3eb" data-block-name="wireframe-series-1-services" data-block-categories="services" data-test="block-wrapper" data-anchor="why-it-works" data-is-dark-background="true" class="block-wrapper w-block-wrapper block-wrapper_3Um background_3lr background background--dark w-state-has-background"><div style="display:none" id="why-it-works"></div><div class="w-block-background background-wrapper_RZ2" aria-hidden="true" data-background--hide="false" data-component="background" data-type="color" data-data-loaded="true"><div class="background_2xT" style="background:#191715" data-role="placeholder" data-selection-container="true"></div></div><section class="w-section"><div class="w-section__inner"><div class="w-section__content"><div data-columns-count="2" data-columns-inner-size="false" data-component="collection" data-collection-mode="collection" class="collection w-2264cdd8d336659cd045983bf9ea93d6 w-125dc7cd0842aa2136bfd1e686066e7d w-grid w-grid--collection w-grid--gap w-grid--custom-gap w-grid--center" data-items-count="4"><div class="w-grid__inner"><div class="w-grid__item w-grid__item--top w-text-left-xs w-text-left-sm w-text-left-md w-text-left"><div class="w-grid__item-inner w-13f1c8147d9aa8b2649488ee13b46cf3 w-grid__item-panel"><div class="w-list-with-media-wrapper"><ul data-component="collection" data-collection-mode="collection" class="collection w-2cacdfbafe7cc8cc3b679e8d4af879bc w-bad4e6ce41249cb868d51e76361e754a" data-items-count="1"><li class="w-1fe2cb245a7faa4efa842c8d97d12cd4 image-mask--lg_lXq list-with-media_3xi background--dark_3vP"><div class="list-with-media__wrapper-content_1Ym"><div class="list-with-media__media_2iA"><div class="list-with-media__image_1D7"><div class="image-mask-wrapper_3RV w-image-mask-wrapper"><div style="overflow:hidden" id="281e5c4f-62cc-4b4e-9547-ccb1ae3b1041" data-style="{}" data-skip-animation="true" data-animation="" class="image-mask_OkU w-picture-wrapper--mask w-picture-wrapper--lg w-disable-decorator media-wrapper_3VN ui-image__style-overlay_3Lw"><picture class="w-picture ui-picture_2i5" data-wrapper-id="281e5c4f-62cc-4b4e-9547-ccb1ae3b1041" data-component="picture" data-imagetype="svg" data-fallbackurl="//res2.weblium.site/res/67f4e70fd16f8cb9eda6875c/680221fcb30b6b41ac2bb7a1" data-svg="{&quot;width&quot;:127,&quot;height&quot;:150,&quot;x&quot;:&quot;x=\&quot;25px\&quot;&quot;,&quot;y&quot;:&quot;y=\&quot;30px\&quot;&quot;,&quot;extentWidth&quot;:178,&quot;extentHeight&quot;:211,&quot;md&quot;:{&quot;width&quot;:127,&quot;height&quot;:150},&quot;xs&quot;:{&quot;width&quot;:127,&quot;height&quot;:150}}" data-was-processed="true" data-loaded="true"><img alt="Illustration" aria-label="Illustration" data-fallback-url="data:image/svg+xml,%3Csvg width='1000' height='1000' viewBox='0 0 1000 1000' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E" class="w-picture__image ui-image_3aJ w-ddcc310ab79db79b65faaa0013f426e1" src="data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='178' height='211' %3E%3Cimage x='25px' y='30px' xlink:href='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI3IiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDEyNyAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02My40OTIyIDEyNC41NTFDOTIuMDA3OCAxMjQuNTUxIDEwNi4yNjYgMTE5LjM3NSAxMDYuMjY2IDEwOS4wMjNDMTA2LjI2NiA5OC44NjcyIDkyLjAwNzggOTMuNzg5MSA2My40OTIyIDkzLjc4OTFDMzUuMDc0MiA5My43ODkxIDIwLjg2NTIgOTguOTE2IDIwLjg2NTIgMTA5LjE3QzIwLjg2NTIgMTE5LjQyNCAzNS4wNzQyIDEyNC41NTEgNjMuNDkyMiAxMjQuNTUxWk02My40OTIyIDE0OS42QzUzLjYyODkgMTQ5LjYgNDQuODg4NyAxNDguNzIxIDM3LjI3MTUgMTQ2Ljk2M0MyOS42NTQzIDE0NS4yMDUgMjMuNTk5NiAxNDMuMDA4IDE5LjEwNzQgMTQwLjM3MUMxNC42MTUyIDEzNy42MzcgMTAuOTUzMSAxMzQuNDE0IDguMTIxMDkgMTMwLjcwM0M1LjI4OTA2IDEyNi44OTUgMy4zODQ3NiAxMjMuMjgxIDIuNDA4MiAxMTkuODYzQzEuMzMzOTggMTE2LjQ0NSAwLjc5Njg3MyAxMTIuODgxIDAuNzk2ODczIDEwOS4xN0MwLjc5Njg3MyA5NS45ODYzIDYuNDEyMTEgODUuOTI3NyAxNy42NDI2IDc4Ljk5NDFDMjguODczIDcxLjk2MjkgNDQuMTU2MiA2OC40NDczIDYzLjQ5MjIgNjguNDQ3M0M4My4wMjM0IDY4LjQ0NzMgOTguMzU1NSA3Mi4wMTE3IDEwOS40ODggNzkuMTQwNkMxMjAuNjIxIDg2LjE3MTkgMTI2LjE4NyA5Ni4xMzI4IDEyNi4xODcgMTA5LjAyM0MxMjYuMTg3IDExMi40NDEgMTI1Ljc0OCAxMTUuODExIDEyNC44NjkgMTE5LjEzMUMxMjMuOTkgMTIyLjQ1MSAxMjIuMTg0IDEyNi4wMTYgMTE5LjQ0OSAxMjkuODI0QzExNi42MTcgMTMzLjYzMyAxMTMuMDA0IDEzNi45NTMgMTA4LjYwOSAxMzkuNzg1QzEwNC4yMTUgMTQyLjYxNyA5OC4xNjAyIDE0NC45NjEgOTAuNDQ1MyAxNDYuODE2QzgyLjYzMjggMTQ4LjY3MiA3My42NDg0IDE0OS42IDYzLjQ5MjIgMTQ5LjZaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDMuMTMwOSA1Mi43NzM0TDI0LjgyMDMgNTIuNzczNEwyNC44MjAzIDQ2LjkxNDFDMjQuODIwMyAzOC4wMjczIDIyLjk2NDggMzEuNjMwOSAxOS4yNTM5IDI3LjcyNDZDMTUuNTQzIDIzLjcyMDcgMTAuOTA0MyAyMS43MTg3IDUuMzM3ODkgMjEuNzE4N0wyLjcwMTE3IDIxLjcxODdMMi43MDExNyAwLjMzMjAzMUwxMjQuNTc2IDAuMzMyMDI2TDEyNC41NzYgMjUuMzgwOUw0My4xMzA5IDI1LjM4MDlMNDMuMTMwOSA1Mi43NzM0WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==' height='150' width='127' preserveAspectRatio='xMinYMin meet'/%3E%3C/svg%3E"></picture></div></div></div></div><div class="w-list-with-media__content list-with-media__content_3aQ list-with-media--align-left_2cJ"><div class=""><p class="w-list-with-media__heading list-with-media__heading_Jzx text_1k0 ui-heading w-heading ui-heading--light" data-component="text" data-dark-background-classname="ui-heading--light"><span class="w-text-block" style="display:block"><span class="w-text-content"><span class="text-ui-brand-color" style="color:var(--ui-brand-color)">Внутрішня свобода</span></span></span></p></div><div class="list-with-media__text-bottom"><p class="text_1k0 ui-text w-body ui-text--light" data-component="text" data-dark-background-classname="ui-text--light"><br><span style="display:block" class="w-text-block "><span class="w-text-content">Ти більше не відчуватимеш постійної провини й страху «зробити не так».</span></span></p></div></div></div></li></ul></div></div></div><div class="w-grid__item w-grid__item--top w-text-left-xs w-text-left-sm w-text-left-md w-text-left"><div class="w-grid__item-inner w-13f1c8147d9aa8b2649488ee13b46cf3 w-grid__item-panel"><div class="w-list-with-media-wrapper"><ul data-component="collection" data-collection-mode="collection" class="collection w-2cacdfbafe7cc8cc3b679e8d4af879bc w-bad4e6ce41249cb868d51e76361e754a" data-items-count="1"><li class="w-1fe2cb245a7faa4efa842c8d97d12cd4 image-mask--lg_lXq list-with-media_3xi background--dark_3vP"><div class="list-with-media__wrapper-content_1Ym"><div class="list-with-media__media_2iA"><div class="list-with-media__image_1D7"><div class="image-mask-wrapper_3RV w-image-mask-wrapper"><div style="overflow:hidden" id="82b2242d-7329-4d86-8b5f-c3b7c391e59b" data-style="{}" data-skip-animation="true" data-animation="" class="image-mask_OkU w-picture-wrapper--mask w-picture-wrapper--lg w-disable-decorator media-wrapper_3VN ui-image__style-overlay_3Lw"><picture class="w-picture ui-picture_2i5" data-wrapper-id="82b2242d-7329-4d86-8b5f-c3b7c391e59b" data-component="picture" data-imagetype="svg" data-fallbackurl="//res2.weblium.site/res/67f4e70fd16f8cb9eda6875c/680221fdb30b6b41ac2bb7b5" data-svg="{&quot;width&quot;:127,&quot;height&quot;:169,&quot;x&quot;:&quot;x=\&quot;18px\&quot;&quot;,&quot;y&quot;:&quot;y=\&quot;24px\&quot;&quot;,&quot;extentWidth&quot;:163,&quot;extentHeight&quot;:218,&quot;md&quot;:{&quot;width&quot;:127,&quot;height&quot;:169},&quot;xs&quot;:{&quot;width&quot;:127,&quot;height&quot;:169}}" data-was-processed="true" data-loaded="true"><img alt="Illustration" aria-label="Illustration" data-fallback-url="data:image/svg+xml,%3Csvg width='1000' height='1000' viewBox='0 0 1000 1000' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E" class="w-picture__image ui-image_3aJ w-ddcc310ab79db79b65faaa0013f426e1" src="data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='163' height='218' %3E%3Cimage x='18px' y='24px' xlink:href='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI3IiBoZWlnaHQ9IjE2OSIgdmlld0JveD0iMCAwIDEyNyAxNjkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02My40OTIyIDE0My41NTFDOTIuMDA3OCAxNDMuNTUxIDEwNi4yNjYgMTM4LjM3NSAxMDYuMjY2IDEyOC4wMjNDMTA2LjI2NiAxMTcuODY3IDkyLjAwNzggMTEyLjc4OSA2My40OTIyIDExMi43ODlDMzUuMDc0MiAxMTIuNzg5IDIwLjg2NTIgMTE3LjkxNiAyMC44NjUyIDEyOC4xN0MyMC44NjUyIDEzOC40MjQgMzUuMDc0MiAxNDMuNTUxIDYzLjQ5MjIgMTQzLjU1MVpNNjMuNDkyMiAxNjguNkM1My42Mjg5IDE2OC42IDQ0Ljg4ODcgMTY3LjcyMSAzNy4yNzE1IDE2NS45NjNDMjkuNjU0MyAxNjQuMjA1IDIzLjU5OTYgMTYyLjAwOCAxOS4xMDc0IDE1OS4zNzFDMTQuNjE1MiAxNTYuNjM3IDEwLjk1MzEgMTUzLjQxNCA4LjEyMTA5IDE0OS43MDNDNS4yODkwNiAxNDUuODk1IDMuMzg0NzYgMTQyLjI4MSAyLjQwODIgMTM4Ljg2M0MxLjMzMzk4IDEzNS40NDUgMC43OTY4NzMgMTMxLjg4MSAwLjc5Njg3MyAxMjguMTdDMC43OTY4NzMgMTE0Ljk4NiA2LjQxMjExIDEwNC45MjggMTcuNjQyNiA5Ny45OTQxQzI4Ljg3MyA5MC45NjI5IDQ0LjE1NjIgODcuNDQ3MyA2My40OTIyIDg3LjQ0NzNDODMuMDIzNCA4Ny40NDczIDk4LjM1NTUgOTEuMDExNyAxMDkuNDg4IDk4LjE0MDZDMTIwLjYyMSAxMDUuMTcyIDEyNi4xODcgMTE1LjEzMyAxMjYuMTg3IDEyOC4wMjNDMTI2LjE4NyAxMzEuNDQxIDEyNS43NDggMTM0LjgxMSAxMjQuODY5IDEzOC4xMzFDMTIzLjk5IDE0MS40NTEgMTIyLjE4NCAxNDUuMDE2IDExOS40NDkgMTQ4LjgyNEMxMTYuNjE3IDE1Mi42MzMgMTEzLjAwNCAxNTUuOTUzIDEwOC42MDkgMTU4Ljc4NUMxMDQuMjE1IDE2MS42MTcgOTguMTYwMiAxNjMuOTYxIDkwLjQ0NTMgMTY1LjgxNkM4Mi42MzI4IDE2Ny42NzIgNzMuNjQ4NCAxNjguNiA2My40OTIyIDE2OC42WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTM0LjYzNDggNzYuNzUzOUMyNC4xODU1IDc0LjUwNzggMTUuOTMzNiA3MC4xMTMzIDkuODc4OSA2My41NzAzQzMuODI0MjEgNTcuMDI3MyAwLjc5Njg3IDQ4LjUzMTIgMC43OTY4NjkgMzguMDgyQzAuNzk2ODY5IDI2Ljk0OTIgNC4wMTk1MiAxNy44MTg0IDEwLjQ2NDggMTAuNjg5NUMxNi45MTAxIDMuNTYwNTUgMjUuNTAzOSAtMC4wMDM5MDczMyAzNi4yNDYxIC0wLjAwMzkwNzhDNDMuMjc3MyAtMC4wMDM5MDgxMSA0OS41NzYyIDEuNjA3NDIgNTUuMTQyNiA0LjgzMDA4QzYwLjcwOSA3Ljk1NTA4IDY2LjMyNDIgMTIuNDQ3MyA3MS45ODgzIDE4LjMwNjZDNzIuOTY0OCAxOS4yODMyIDc1LjU1MjcgMjEuOTY4NyA3OS43NTE5IDI2LjM2MzNDODMuODUzNSAzMC42NjAyIDg3Ljc1OTggMzQuMzcxMSA5MS40NzA3IDM3LjQ5NjFDOTUuMTgxNiA0MC42MjExIDk5LjE4NTUgNDMuMzU1NSAxMDMuNDgyIDQ1LjY5OTJMMTAzLjQ4MiAwLjU4MjAyN0wxMjMuNDA0IDAuNTgyMDI2TDEyMy40MDQgNzUuMjg5MUMxMTguMTMxIDc1LjI4OTEgMTEyLjk1NSA3NC41MDc4IDEwNy44NzcgNzIuOTQ1M0MxMDIuNzk5IDcxLjM4MjggOTguNDA0MyA2OS42MjUgOTQuNjkzNCA2Ny42NzE5QzkwLjg4NDggNjUuNjIxMSA4Ni43ODMyIDYyLjc4OTEgODIuMzg4NyA1OS4xNzU4Qzc3Ljk5NDEgNTUuNDY0OCA3NC41MjczIDUyLjM4ODcgNzEuOTg4MyA0OS45NDczQzY5LjQ0OTIgNDcuNDA4MiA2Ni4yMjY2IDQ0LjAzOTEgNjIuMzIwMyAzOS44Mzk4QzYxLjI0NjEgMzguNjY4IDYwLjQxNiAzNy43ODkxIDU5LjgzMDEgMzcuMjAzMUM1Mi4yMTI5IDI5LjE5NTMgNDQuMTU2MiAyNS4xOTE0IDM1LjY2MDEgMjUuMTkxNEMzMS4wNzAzIDI1LjE5MTQgMjcuNDU3IDI2LjQxMjEgMjQuODIwMyAyOC44NTM1QzIyLjE4MzYgMzEuMTk3MyAyMC44NjUyIDM0LjMyMjMgMjAuODY1MiAzOC4yMjg1QzIwLjg2NTIgNDcuMjEyOSAyNy41MDU5IDUzLjIxODcgNDAuNzg3MSA1Ni4yNDYxTDM0LjYzNDggNzYuNzUzOVoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=' height='169' width='127' preserveAspectRatio='xMinYMin meet'/%3E%3C/svg%3E"></picture></div></div></div></div><div class="w-list-with-media__content list-with-media__content_3aQ list-with-media--align-left_2cJ"><div class=""><p class="w-list-with-media__heading list-with-media__heading_Jzx text_1k0 ui-heading w-heading ui-heading--light" data-component="text" data-dark-background-classname="ui-heading--light"><span class="w-text-block" style="display:block"><span class="w-text-content"><span class="text-ui-brand-color" style="color:var(--ui-brand-color)">Здорові стосунки</span></span></span></p></div><div class="list-with-media__text-bottom"><p class="text_1k0 ui-text w-body ui-text--light" data-component="text" data-dark-background-classname="ui-text--light"><br><span style="display:block" class="w-text-block "><span class="w-text-content">Зможеш будувати відносини без повторення сценаріїв своїх батьків.</span></span></p></div></div></div></li></ul></div></div></div><div class="w-grid__item w-grid__item--top w-text-left-xs w-text-left-sm w-text-left-md w-text-left"><div class="w-grid__item-inner w-13f1c8147d9aa8b2649488ee13b46cf3 w-grid__item-panel"><div class="w-list-with-media-wrapper"><ul data-component="collection" data-collection-mode="collection" class="collection w-2cacdfbafe7cc8cc3b679e8d4af879bc w-bad4e6ce41249cb868d51e76361e754a" data-items-count="1"><li class="w-1fe2cb245a7faa4efa842c8d97d12cd4 image-mask--lg_lXq list-with-media_3xi background--dark_3vP"><div class="list-with-media__wrapper-content_1Ym"><div class="list-with-media__media_2iA"><div class="list-with-media__image_1D7"><div class="image-mask-wrapper_3RV w-image-mask-wrapper"><div style="overflow:hidden" id="39330612-bfbd-46a8-ac5a-ebd0a4492db8" data-style="{}" data-skip-animation="true" data-animation="" class="image-mask_OkU w-picture-wrapper--mask w-picture-wrapper--lg w-disable-decorator media-wrapper_3VN ui-image__style-overlay_3Lw"><picture class="w-picture ui-picture_2i5" data-wrapper-id="39330612-bfbd-46a8-ac5a-ebd0a4492db8" data-component="picture" data-imagetype="svg" data-fallbackurl="//res2.weblium.site/res/67f4e70fd16f8cb9eda6875c/680221fe4ca6357820a1e21c" data-svg="{&quot;width&quot;:127,&quot;height&quot;:173,&quot;x&quot;:&quot;x=\&quot;12px\&quot;&quot;,&quot;y&quot;:&quot;y=\&quot;16px\&quot;&quot;,&quot;extentWidth&quot;:151,&quot;extentHeight&quot;:205,&quot;md&quot;:{&quot;width&quot;:127,&quot;height&quot;:173},&quot;xs&quot;:{&quot;width&quot;:127,&quot;height&quot;:173}}" data-was-processed="true" data-loaded="true"><img alt="Illustration" aria-label="Illustration" data-fallback-url="data:image/svg+xml,%3Csvg width='1000' height='1000' viewBox='0 0 1000 1000' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E" class="w-picture__image ui-image_3aJ w-ddcc310ab79db79b65faaa0013f426e1" src="data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='151' height='205' %3E%3Cimage x='12px' y='16px' xlink:href='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI3IiBoZWlnaHQ9IjE3MyIgdmlld0JveD0iMCAwIDEyNyAxNzMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02My40OTIyIDE0Ny41NTFDOTIuMDA3OCAxNDcuNTUxIDEwNi4yNjYgMTQyLjM3NSAxMDYuMjY2IDEzMi4wMjNDMTA2LjI2NiAxMjEuODY3IDkyLjAwNzggMTE2Ljc4OSA2My40OTIyIDExNi43ODlDMzUuMDc0MiAxMTYuNzg5IDIwLjg2NTIgMTIxLjkxNiAyMC44NjUyIDEzMi4xN0MyMC44NjUyIDE0Mi40MjQgMzUuMDc0MiAxNDcuNTUxIDYzLjQ5MjIgMTQ3LjU1MVpNNjMuNDkyMiAxNzIuNkM1My42Mjg5IDE3Mi42IDQ0Ljg4ODcgMTcxLjcyMSAzNy4yNzE1IDE2OS45NjNDMjkuNjU0MyAxNjguMjA1IDIzLjU5OTYgMTY2LjAwOCAxOS4xMDc0IDE2My4zNzFDMTQuNjE1MiAxNjAuNjM3IDEwLjk1MzEgMTU3LjQxNCA4LjEyMTA5IDE1My43MDNDNS4yODkwNiAxNDkuODk1IDMuMzg0NzYgMTQ2LjI4MSAyLjQwODIgMTQyLjg2M0MxLjMzMzk4IDEzOS40NDUgMC43OTY4NzMgMTM1Ljg4MSAwLjc5Njg3MyAxMzIuMTdDMC43OTY4NzMgMTE4Ljk4NiA2LjQxMjExIDEwOC45MjggMTcuNjQyNiAxMDEuOTk0QzI4Ljg3MyA5NC45NjI5IDQ0LjE1NjIgOTEuNDQ3MiA2My40OTIyIDkxLjQ0NzJDODMuMDIzNCA5MS40NDcyIDk4LjM1NTUgOTUuMDExNyAxMDkuNDg4IDEwMi4xNDFDMTIwLjYyMSAxMDkuMTcyIDEyNi4xODcgMTE5LjEzMyAxMjYuMTg3IDEzMi4wMjNDMTI2LjE4NyAxMzUuNDQxIDEyNS43NDggMTM4LjgxMSAxMjQuODY5IDE0Mi4xMzFDMTIzLjk5IDE0NS40NTEgMTIyLjE4NCAxNDkuMDE2IDExOS40NDkgMTUyLjgyNEMxMTYuNjE3IDE1Ni42MzMgMTEzLjAwNCAxNTkuOTUzIDEwOC42MDkgMTYyLjc4NUMxMDQuMjE1IDE2NS42MTcgOTguMTYwMiAxNjcuOTYxIDkwLjQ0NTMgMTY5LjgxNkM4Mi42MzI4IDE3MS42NzIgNzMuNjQ4NCAxNzIuNiA2My40OTIyIDE3Mi42WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTk3LjAzNzEgODMuMDk3Nkw5MC4wMDU5IDYzLjc2MTdDMTAwLjc0OCA1OS42NjAxIDEwNi4xMTkgNTIuNzc1NCAxMDYuMTE5IDQzLjEwNzRDMTA2LjExOSAzOC4zMjIyIDEwNC41NTcgMzQuMzE4MyAxMDEuNDMyIDMxLjA5NTdDOTguMjA5IDI3Ljc3NTQgOTMuOTEyMSAyNi4xMTUyIDg4LjU0MSAyNi4xMTUyQzgzLjY1ODIgMjYuMTE1MiA3OS41NTY2IDI3LjkyMTkgNzYuMjM2MyAzMS41MzUxQzcyLjkxNiAzNS4wNTA4IDcxLjI1NTkgMzkuNzg3MSA3MS4yNTU5IDQ1Ljc0NDFDNzEuMjU1OSA0OS42NTA0IDcxLjQ1MTIgNTMuNTU2NiA3MS44NDE4IDU3LjQ2MjlMNTIuMDY2NCA1Ny40NjI5QzUyLjI2MTcgNTQuNjMwOCA1Mi4zNTk0IDUwLjkxOTkgNTIuMzU5NCA0Ni4zMzAxQzUyLjM1OTQgNDEuOTM1NSA1MC45NDM0IDM4LjEyNjkgNDguMTExMyAzNC45MDQzQzQ1LjE4MTYgMzEuNjgxNiA0MS4xMjg5IDMwLjA3MDMgMzUuOTUzMSAzMC4wNzAzQzMxLjQ2MDkgMzAuMDcwMyAyNy44NDc3IDMxLjQzNzUgMjUuMTEzMyAzNC4xNzE5QzIyLjI4MTIgMzYuODA4NiAyMC44NjUyIDQwLjEyODkgMjAuODY1MiA0NC4xMzI4QzIwLjg2NTIgNTEuODQ3NiAyNi4zODI4IDU3LjQxNCAzNy40MTggNjAuODMyTDMxLjQxMjEgODAuNjA3NEMyMi4yMzI0IDc4LjU1NjYgMTQuODU5NCA3NC4yMTA5IDkuMjkyOTYgNjcuNTcwM0MzLjYyODkgNjAuOTI5NyAwLjc5Njg3IDUyLjYyODkgMC43OTY4NjkgNDIuNjY4QzAuNzk2ODY5IDMxLjI0MjIgMy44NzMwNCAyMi4xMTEzIDEwLjAyNTQgMTUuMjc1NEMxNi4xNzc3IDguNDM5NDQgMjQuMDM5MSA1LjAyMTQ3IDMzLjYwOTQgNS4wMjE0N0MzOS40Njg3IDUuMDIxNDcgNDQuNzkxIDYuNDM3NDggNDkuNTc2MiA5LjI2OTUxQzU0LjI2MzcgMTIuMDAzOSA1Ny44NzY5IDE1LjUxOTUgNjAuNDE2IDE5LjgxNjRDNjIuMzY5MSAxNC43MzgzIDY1Ljc4NzEgMTAuMjk0OSA3MC42Njk5IDYuNDg2MzFDNzUuNTUyNyAyLjY3NzcyIDgxLjUwOTggMC43NzM0MTkgODguNTQxIDAuNzczNDE4QzEwMC4xNjIgMC43NzM0MTggMTA5LjM0MiA0LjU4MjAxIDExNi4wOCAxMi4xOTkyQzEyMi43MjEgMTkuODE2NCAxMjYuMDQxIDMwLjAyMTUgMTI2LjA0MSA0Mi44MTQ0QzEyNi4wNDEgNTMuMjYzNyAxMjMuMjA5IDYyLjEwMTUgMTE3LjU0NSA2OS4zMjgxQzExMS44ODEgNzYuNTU0NyAxMDUuMDQ1IDgxLjE0NDUgOTcuMDM3MSA4My4wOTc2WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==' height='173' width='127' preserveAspectRatio='xMinYMin meet'/%3E%3C/svg%3E"></picture></div></div></div></div><div class="w-list-with-media__content list-with-media__content_3aQ list-with-media--align-left_2cJ"><div class=""><p class="w-list-with-media__heading list-with-media__heading_Jzx text_1k0 ui-heading w-heading ui-heading--light" data-component="text" data-dark-background-classname="ui-heading--light"><span class="w-text-block" style="display:block"><span class="w-text-content"><span class="text-ui-brand-color" style="color:var(--ui-brand-color)">Сила вибору</span></span></span></p></div><div class="list-with-media__text-bottom"><p class="text_1k0 ui-text w-body ui-text--light" data-component="text" data-dark-background-classname="ui-text--light"><br><span style="display:block" class="w-text-block "><span class="w-text-content">Навчишся відрізняти свій справжній голос від директив і приймати власні рішення.</span></span></p></div></div></div></li></ul></div></div></div><div class="w-grid__item w-grid__item--top w-text-left-xs w-text-left-sm w-text-left-md w-text-left"><div class="w-grid__item-inner w-13f1c8147d9aa8b2649488ee13b46cf3 w-grid__item-panel"><div class="w-list-with-media-wrapper"><ul data-component="collection" data-collection-mode="collection" class="collection w-2cacdfbafe7cc8cc3b679e8d4af879bc w-bad4e6ce41249cb868d51e76361e754a" data-items-count="1"><li class="w-1fe2cb245a7faa4efa842c8d97d12cd4 image-mask--lg_lXq list-with-media_3xi background--dark_3vP"><div class="list-with-media__wrapper-content_1Ym"><div class="list-with-media__media_2iA"><div class="list-with-media__image_1D7"><div class="image-mask-wrapper_3RV w-image-mask-wrapper"><div style="overflow:hidden" id="4e6a3791-9a09-4858-b07c-dd5fd306d3f8" data-style="{}" data-skip-animation="true" data-animation="" class="image-mask_OkU w-picture-wrapper--mask w-picture-wrapper--lg w-disable-decorator media-wrapper_3VN ui-image__style-overlay_3Lw"><picture class="w-picture ui-picture_2i5" data-wrapper-id="4e6a3791-9a09-4858-b07c-dd5fd306d3f8" data-component="picture" data-imagetype="svg" data-fallbackurl="//res2.weblium.site/res/67f4e70fd16f8cb9eda6875c/680221ff92468af546b80424" data-svg="{&quot;width&quot;:127,&quot;height&quot;:175,&quot;x&quot;:&quot;x=\&quot;13px\&quot;&quot;,&quot;y&quot;:&quot;y=\&quot;18px\&quot;&quot;,&quot;extentWidth&quot;:153,&quot;extentHeight&quot;:211,&quot;md&quot;:{&quot;width&quot;:127,&quot;height&quot;:175},&quot;xs&quot;:{&quot;width&quot;:127,&quot;height&quot;:175}}" data-was-processed="true" data-loaded="true"><img alt="Illustration" aria-label="Illustration" data-fallback-url="data:image/svg+xml,%3Csvg width='1000' height='1000' viewBox='0 0 1000 1000' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E" class="w-picture__image ui-image_3aJ w-ddcc310ab79db79b65faaa0013f426e1" src="data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='153' height='211' %3E%3Cimage x='13px' y='18px' xlink:href='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI3IiBoZWlnaHQ9IjE3NSIgdmlld0JveD0iMCAwIDEyNyAxNzUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02My40OTIyIDE0OS41NTFDOTIuMDA3OCAxNDkuNTUxIDEwNi4yNjYgMTQ0LjM3NSAxMDYuMjY2IDEzNC4wMjNDMTA2LjI2NiAxMjMuODY3IDkyLjAwNzggMTE4Ljc4OSA2My40OTIyIDExOC43ODlDMzUuMDc0MiAxMTguNzg5IDIwLjg2NTIgMTIzLjkxNiAyMC44NjUyIDEzNC4xN0MyMC44NjUyIDE0NC40MjQgMzUuMDc0MiAxNDkuNTUxIDYzLjQ5MjIgMTQ5LjU1MVpNNjMuNDkyMiAxNzQuNkM1My42Mjg5IDE3NC42IDQ0Ljg4ODcgMTczLjcyMSAzNy4yNzE1IDE3MS45NjNDMjkuNjU0MyAxNzAuMjA1IDIzLjU5OTYgMTY4LjAwOCAxOS4xMDc0IDE2NS4zNzFDMTQuNjE1MiAxNjIuNjM3IDEwLjk1MzEgMTU5LjQxNCA4LjEyMTA5IDE1NS43MDNDNS4yODkwNiAxNTEuODk1IDMuMzg0NzYgMTQ4LjI4MSAyLjQwODIgMTQ0Ljg2M0MxLjMzMzk4IDE0MS40NDUgMC43OTY4NzMgMTM3Ljg4MSAwLjc5Njg3MyAxMzQuMTdDMC43OTY4NzMgMTIwLjk4NiA2LjQxMjExIDExMC45MjggMTcuNjQyNiAxMDMuOTk0QzI4Ljg3MyA5Ni45NjI5IDQ0LjE1NjIgOTMuNDQ3MyA2My40OTIyIDkzLjQ0NzNDODMuMDIzNCA5My40NDczIDk4LjM1NTUgOTcuMDExNyAxMDkuNDg4IDEwNC4xNDFDMTIwLjYyMSAxMTEuMTcyIDEyNi4xODcgMTIxLjEzMyAxMjYuMTg3IDEzNC4wMjNDMTI2LjE4NyAxMzcuNDQxIDEyNS43NDggMTQwLjgxMSAxMjQuODY5IDE0NC4xMzFDMTIzLjk5IDE0Ny40NTEgMTIyLjE4NCAxNTEuMDE2IDExOS40NDkgMTU0LjgyNEMxMTYuNjE3IDE1OC42MzMgMTEzLjAwNCAxNjEuOTUzIDEwOC42MDkgMTY0Ljc4NUMxMDQuMjE1IDE2Ny42MTcgOTguMTYwMiAxNjkuOTYxIDkwLjQ0NTMgMTcxLjgxNkM4Mi42MzI4IDE3My42NzIgNzMuNjQ4NCAxNzQuNiA2My40OTIyIDE3NC42WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTgwLjA0NDkgODUuNjgzNkwyLjcwMTE3IDM0LjQxNDFMMi43MDExNiAxMy43NTk4TDc5Ljc1MTkgMTMuNzU5OEw3OS43NTE5IDAuNTc2MTg0TDk5LjY3MzggMC41NzYxODNMOTkuNjczOCAxMy43NTk4TDEyNC4xMzcgMTMuNzU5OEwxMjQuMTM3IDM3LjkyOTdMOTkuNjczOCAzNy45Mjk3TDk5LjY3MzggODUuNjgzNkw4MC4wNDQ5IDg1LjY4MzZaTTc5Ljc1MTkgNjIuOTc4NUw3OS43NTE5IDM3LjkyOTdMNTMuMzg0OCAzNy45Mjk3QzQ4LjUwMTkgMzcuOTI5NyA0My44NjMzIDM3LjczNDQgMzkuNDY4NyAzNy4zNDM4TDM5LjQ2ODcgMzguMDc2MkM0NC4xNTYyIDQwLjYxNTIgNDguMDYyNSA0Mi44NjEzIDUxLjE4NzUgNDQuODE0NUw3OS43NTE5IDYyLjk3ODVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K' height='175' width='127' preserveAspectRatio='xMinYMin meet'/%3E%3C/svg%3E"></picture></div></div></div></div><div class="w-list-with-media__content list-with-media__content_3aQ list-with-media--align-left_2cJ"><div class=""><p class="w-list-with-media__heading list-with-media__heading_Jzx text_1k0 ui-heading w-heading ui-heading--light" data-component="text" data-dark-background-classname="ui-heading--light"><span class="w-text-block" style="display:block"><span class="w-text-content"><span class="text-ui-brand-color" style="color:var(--ui-brand-color)">Впевненість у майбутньому</span></span></span></p></div><div class="list-with-media__text-bottom"><p class="text_1k0 ui-text w-body ui-text--light" data-component="text" data-dark-background-classname="ui-text--light"><br><span style="display:block" class="w-text-block "><span class="w-text-content">Побачиш нові можливості для грошей, кар’єри та життя без старих обмежень.</span></span></p></div></div></div></li></ul></div></div></div></div></div></div></div></section></div></div> -->
+
+    <section class="py-20 bg-darker relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-orange rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-orange rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <p class="text-orange text-sm font-semibold uppercase tracking-wider mb-2">
+                    <span class="lang-content" data-lang="uk">БЕЗ РИЗИКУ</span>
+                    <span class="lang-content hidden" data-lang="ru">БЕЗ РИСКА</span>
+                </p>
+                <h2 class="text-4xl md:text-6xl font-bold">
+                    <span class="lang-content" data-lang="uk">Наші <span class="text-orange">гарантії</span></span>
+                    <span class="lang-content hidden" data-lang="ru">Наши <span class="text-orange">гарантии</span></span>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-gradient-to-br from-dark-card to-darker p-10 rounded-3xl border border-gray-800 hover:border-orange transition-all hover:scale-105">
+                    <div class="flex items-center justify-center w-20 h-20 bg-orange rounded-2xl mb-6 mx-auto">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl font-bold text-orange mb-4">14 <span class="text-2xl">днів</span></div>
+                        <h3 class="text-2xl font-bold mb-4">
+                            <span class="lang-content" data-lang="uk">Гарантія повернення коштів</span>
+                            <span class="lang-content hidden" data-lang="ru">Гарантия возврата средств</span>
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            <span class="lang-content" data-lang="uk">Якщо протягом перших двох тижнів ви зрозумієте, що курс вам не підходить - просто напишіть нам, і ми повернемо 100% вартості. Жодних складних процедур чи обґрунтувань не потрібно.</span>
+                            <span class="lang-content hidden" data-lang="ru">Если в течение первых двух недель вы поймёте, что курс вам не подходит - просто напишите нам, и мы вернём 100% стоимости. Никаких сложных процедур или обоснований не нужно.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-dark-card to-darker p-10 rounded-3xl border border-gray-800 hover:border-orange transition-all hover:scale-105">
+                    <div class="flex items-center justify-center w-20 h-20 bg-orange rounded-2xl mb-6 mx-auto">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl font-bold text-orange mb-4">∞</div>
+                        <h3 class="text-2xl font-bold mb-4">
+                            <span class="lang-content" data-lang="uk">Довічний доступ</span>
+                            <span class="lang-content hidden" data-lang="ru">Пожизненный доступ</span>
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            <span class="lang-content" data-lang="uk">Одноразово оплативши курс, ви отримуєте доступ до всіх матеріалів назавжди. Ви зможете повертатися до уроків у будь-який час, проходити їх повторно і отримувати всі оновлення безкоштовно.</span>
+                            <span class="lang-content hidden" data-lang="ru">Однократно оплатив курс, вы получаете доступ ко всем материалам навсегда. Вы сможете возвращаться к урокам в любое время, проходить их повторно и получать все обновления бесплатно.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 bg-dark-card">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center">
+                <span class="lang-content" data-lang="uk">Залишились <span class="text-orange">питання?</span></span>
+                <span class="lang-content hidden" data-lang="ru">Остались <span class="text-orange">вопросы?</span></span>
+            </h2>
+            <div class="space-y-4">
+                </details>
+                <div class="bg-dark-card p-8 rounded-xl">
+                    <form id="registrationForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">
+                                <span class="lang-content" data-lang="uk">Ім'я</span>
+                                <span class="lang-content hidden" data-lang="ru">Имя</span>
+                            </label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg bg-darker border border-gray-700 focus:border-orange focus:outline-none" placeholder="">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-darker border border-gray-700 focus:border-orange focus:outline-none" placeholder="">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">
+                                <span class="lang-content" data-lang="uk">Телефон</span>
+                                <span class="lang-content hidden" data-lang="ru">Телефон</span>
+                            </label>
+                            <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg bg-darker border border-gray-700 focus:border-orange focus:outline-none" placeholder="+380">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">
+                                <span class="lang-content" data-lang="uk">Суть вашого питання</span>
+                                <span class="lang-content hidden" data-lang="ru">Суть вашего вопроса</span>
+                            </label>
+                            <textarea name="question" required rows="4" class="w-full px-4 py-3 rounded-lg bg-darker border border-gray-700 focus:border-orange focus:outline-none resize-none" placeholder=""></textarea>
+                        </div>
+                        <button type="submit" class="w-full accent-orange accent-orange-hover px-8 py-4 rounded-full font-semibold text-white transition-all">
+                            <span class="lang-content" data-lang="uk">НАДІСЛАТИ ПИТАННЯ</span>
+                            <span class="lang-content hidden" data-lang="ru">ОТПРАВИТЬ ВОПРОС</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-darker">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center">
+                <span class="lang-content" data-lang="uk">12 головних <span class="text-orange">батьківських директив</span></span>
+                <span class="lang-content hidden" data-lang="ru">12 главных <span class="text-orange">родительских директив</span></span>
+            </h2>
+            <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
+                <span class="lang-content" data-lang="uk">Кожна з цих директив впливає на твоє життя, блокуючи успіх, стосунки та внутрішню свободу.</span>
+                <span class="lang-content hidden" data-lang="ru">Каждая из этих директив влияет на твою жизнь, блокируя успех, отношения и внутреннюю свободу.</span>
+            </p>
+            
+            <div class="carousel relative">
+                <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+                <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+                
+                <div class="carousel-container">
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">01</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ ЖИВИ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ ЖИВИ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«Краще б тебе не було», «ти мені все життя зіпсував(ла)» - ці слова формують відчуття, що твоє існування - тягар.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Лучше бы тебя не было», «ты мне всю жизнь испортил(а)» - эти слова формируют ощущение, что твое существование - бремя.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">02</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ РОБИ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ ДЕЛАЙ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«Не можна», «не роби цього» - паралізує ініціативу, створює безсилля і прокрастинацію.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Нельзя», «не делай этого» - парализует инициативу, создаёт бессилие и прокрастинацию.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">03</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ ВІДЧУВАЙ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ ЧУВСТВУЙ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«Чоловіки не плачуть» - блокує емоційний інтелект, створює відчуження від себе.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Мужчины не плачут» - блокирует эмоциональный интеллект, создаёт отчуждение от себя.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">04</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ БУДЬ СОБОЮ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ БУДЬ СОБОЙ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«Будь як твій брат», «чому ти не можеш бути нормальним?» - формує переконання, що справжнє «Я» неприйнятне.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Будь как твой брат», «почему ты не можешь быть нормальным?» - формирует убеждение, что настоящее «Я» неприемлемо.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">05</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ БУДЬ ДИТИНОЮ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ БУДЬ РЕБЕНКОМ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«Не плач», «перестань дурити», «будь серйозним» - блокує спонтанність, радість, легкість у житті.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Не плачь», «перестань дурачиться», «будь серьезным» - блокирует спонтанность, радость, легкость в жизни.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">06</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ БУДЬ ЗДОРОВИМ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ БУДЬ ЗДОРОВЫМ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«Ти знову хворієш?» - створює психосоматику, використання хвороби для отримання уваги.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Ты опять болеешь?» - создаёт психосоматику, использование болезни для получения внимания.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">07</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ БУДЬ БЛИЗЬКИМ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ БУДЬ БЛИЗКИМ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«Не довіряй нікому» - блокує близькість, створює самотність та ізоляцію.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Не доверяй никому» - блокирует близость, создаёт одиночество и изоляцию.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">08</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ БУДЬ ДОРОСЛИМ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ БУДЬ ВЗРОСЛЫМ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«Ти завжди будеш моїм малюком» - блокує дорослішання, самостійність та відповідальність.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Ты всегда будешь моим малышом» - блокирует взросление, самостоятельность и ответственность.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">09</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ ДУМАЙ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ ДУМАЙ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«Я краще знаю» - блокує критичне мислення, змушує залежати від думки інших.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Я лучше знаю» - блокирует критическое мышление, заставляет зависеть от мнения других.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">10</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ БУДЬ УСПІШНИМ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ БУДЬ УСПЕШНЫМ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«З тебе нічого не вийде» - саботує власний успіх, створює страх перед досягненнями.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Из тебя ничего не выйдет» - саботирует собственный успех, создаёт страх перед достижениями.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">11</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ БУДЬ ЛІДЕРОМ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ БУДЬ ЛИДЕРОМ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«Не висовуйся», «не привертай увагу» - блокує лідерство, не дозволяє займати центральну позицію.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Не высовывайся», «не привлекай внимание» - блокирует лидерство, не позволяет занимать центральную позицию.</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="bg-dark-card p-6 md:p-10 rounded-2xl max-w-3xl mx-auto w-full">
+                            <div class="text-5xl md:text-6xl text-orange mb-4 md:mb-6 text-center">12</div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+                                <span class="lang-content" data-lang="uk">НЕ НАЛЕЖ</span>
+                                <span class="lang-content hidden" data-lang="ru">НЕ ПРИНАДЛЕЖИ</span>
+                            </h3>
+                            <p class="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
+                                <span class="lang-content" data-lang="uk">«Ти не такий як всі» - створює відчуження, страх перед приналежністю до групи.</span>
+                                <span class="lang-content hidden" data-lang="ru">«Ты не такой как все» - создаёт отчуждение, страх перед принадлежностью к группе.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-nav">
+                    <span class="carousel-dot active" onclick="showSlide(0)"></span>
+                    <span class="carousel-dot" onclick="showSlide(1)"></span>
+                    <span class="carousel-dot" onclick="showSlide(2)"></span>
+                    <span class="carousel-dot" onclick="showSlide(3)"></span>
+                    <span class="carousel-dot" onclick="showSlide(4)"></span>
+                    <span class="carousel-dot" onclick="showSlide(5)"></span>
+                    <span class="carousel-dot" onclick="showSlide(6)"></span>
+                    <span class="carousel-dot" onclick="showSlide(7)"></span>
+                    <span class="carousel-dot" onclick="showSlide(8)"></span>
+                    <span class="carousel-dot" onclick="showSlide(9)"></span>
+                    <span class="carousel-dot" onclick="showSlide(10)"></span>
+                    <span class="carousel-dot" onclick="showSlide(11)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-darker border-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center text-sm text-gray-500 border-gray-800 pt-8">
+                <div class="flex justify-center gap-6 mb-6">
+                    <a href="https://www.instagram.com/psiholog_pavlokazarian" target="_blank" rel="noopener" class="text-gray-400 hover:text-orange transition-all hover:scale-110" title="Instagram">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/kazarian.coach" target="_blank" rel="noopener" class="text-gray-400 hover:text-orange transition-all hover:scale-110" title="Facebook">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@pavel.kazarjan?_t=ZM-90Np280WKFP&_r=1" target="_blank" rel="noopener" class="text-gray-400 hover:text-orange transition-all hover:scale-110" title="TikTok">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                        </svg>
+                    </a>
+                    <a href="https://youtube.com/@psiholog_pavlokazarian" target="_blank" rel="noopener" class="text-gray-400 hover:text-orange transition-all hover:scale-110" title="YouTube">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:pavel.kazarjan@gmail.com" class="text-gray-400 hover:text-orange transition-all hover:scale-110" title="Email">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 mb-4">
+                    <a href="#" class="hover:text-orange transition-colors" onclick="openModal('privacy'); return false;">
+                        <span class="lang-content" data-lang="uk">Політика конфіденційності</span>
+                        <span class="lang-content hidden" data-lang="ru">Политика конфиденциальности</span>
+                    </a>
+                    <a href="#" class="hover:text-orange transition-colors" onclick="openModal('offer'); return false;">
+                        <span class="lang-content" data-lang="uk">Договір публічної оферти</span>
+                        <span class="lang-content hidden" data-lang="ru">Договор публичной оферты</span>
+                    </a>
+                </div>
+                <p>
+                    <span class="lang-content" data-lang="uk">© 2025 Павло Казар'ян. Всі права захищені.</span>
+                    <span class="lang-content hidden" data-lang="ru">© 2025 Павел Казарьян. Все права защищены.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('privacy')">&times;</span>
+            <h2 class="text-3xl font-bold mb-6 text-orange">
+                <span class="lang-content" data-lang="uk">Договір конфіденційності (NDA)</span>
+                <span class="lang-content hidden" data-lang="ru">Договор конфиденциальности (NDA)</span>
+            </h2>
+            <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p class="text-sm text-gray-500">
+                    <span class="lang-content" data-lang="uk">(для учасників курсу «Батьківські Директиви»)</span>
+                    <span class="lang-content hidden" data-lang="ru">(для участников курса «Родительские Директивы»)</span>
+                </p>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">1. Сторони договору</span>
+                    <span class="lang-content hidden" data-lang="ru">1. Стороны договора</span>
+                </h3>
+                <p>
+                    <span class="lang-content" data-lang="uk">Цей Договір укладається між ФОП Казар'ян Павло Ашотович (надалі - «Сторона 1») та фізичною особою - учасником курсу «Батьківські Директиви» (надалі - «Сторона 2»).</span>
+                    <span class="lang-content hidden" data-lang="ru">Этот Договор заключается между ФОП Казарян Павел Ашотович (далее - «Сторона 1») и физическим лицом - участником курса «Родительские Директивы» (далее - «Сторона 2»).</span>
+                </p>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">2. Мета договору</span>
+                    <span class="lang-content hidden" data-lang="ru">2. Цель договора</span>
+                </h3>
+                <p>
+                    <span class="lang-content" data-lang="uk">Сторони укладають цей Договір для забезпечення конфіденційності будь-якої інформації, що передається в рамках навчання, консультацій чи групових сесій.</span>
+                    <span class="lang-content hidden" data-lang="ru">Стороны заключают этот Договор для обеспечения конфиденциальности любой информации, передаваемой в рамках обучения, консультаций или групповых сессий.</span>
+                </p>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">3. Визначення конфіденційної інформації</span>
+                    <span class="lang-content hidden" data-lang="ru">3. Определение конфиденциальной информации</span>
+                </h3>
+                <p>
+                    <span class="lang-content" data-lang="uk">Під конфіденційною інформацією розуміються:</span>
+                    <span class="lang-content hidden" data-lang="ru">Под конфиденциальной информацией понимаются:</span>
+                </p>
+                <ul class="list-disc ml-6 space-y-2">
+                    <li><span class="lang-content" data-lang="uk">особисті історії, досвід, висловлювання учасників;</span><span class="lang-content hidden" data-lang="ru">личные истории, опыт, высказывания участников;</span></li>
+                    <li><span class="lang-content" data-lang="uk">методики, техніки, записи, матеріали, скрипти, завдання, розроблені Виконавцем;</span><span class="lang-content hidden" data-lang="ru">методики, техники, записи, материалы, скрипты, задания, разработанные Исполнителем;</span></li>
+                    <li><span class="lang-content" data-lang="uk">будь-які внутрішні комунікації (Telegram-чати, листування, записи занять).</span><span class="lang-content hidden" data-lang="ru">любые внутренние коммуникации (Telegram-чаты, переписка, записи занятий).</span></li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">4. Обов'язки сторін</span>
+                    <span class="lang-content hidden" data-lang="ru">4. Обязанности сторон</span>
+                </h3>
+                <p class="font-semibold">
+                    <span class="lang-content" data-lang="uk">Сторона 2 зобов'язується:</span>
+                    <span class="lang-content hidden" data-lang="ru">Сторона 2 обязуется:</span>
+                </p>
+                <ul class="list-disc ml-6 space-y-2">
+                    <li><span class="lang-content" data-lang="uk">не розголошувати, не копіювати й не поширювати будь-які матеріали Курсу;</span><span class="lang-content hidden" data-lang="ru">не разглашать, не копировать и не распространять любые материалы Курса;</span></li>
+                    <li><span class="lang-content" data-lang="uk">не записувати відео/аудіо без письмового дозволу Виконавця;</span><span class="lang-content hidden" data-lang="ru">не записывать видео/аудио без письменного разрешения Исполнителя;</span></li>
+                    <li><span class="lang-content" data-lang="uk">не розповсюджувати особисті історії інших учасників;</span><span class="lang-content hidden" data-lang="ru">не распространять личные истории других участников;</span></li>
+                    <li><span class="lang-content" data-lang="uk">не використовувати отримані знання для створення конкуруючих продуктів без письмового дозволу Сторони 1.</span><span class="lang-content hidden" data-lang="ru">не использовать полученные знания для создания конкурирующих продуктов без письменного разрешения Стороны 1.</span></li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">5. Термін дії конфіденційності</span>
+                    <span class="lang-content hidden" data-lang="ru">5. Срок действия конфиденциальности</span>
+                </h3>
+                <p>
+                    <span class="lang-content" data-lang="uk">Договір діє безстроково, а обов'язок нерозголошення зберігається протягом 3 років після завершення Курсу.</span>
+                    <span class="lang-content hidden" data-lang="ru">Договор действует бессрочно, а обязательство неразглашения сохраняется в течение 3 лет после завершения Курса.</span>
+                </p>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">6. Відповідальність</span>
+                    <span class="lang-content hidden" data-lang="ru">6. Ответственность</span>
+                </h3>
+                <p>
+                    <span class="lang-content" data-lang="uk">У разі порушення умов цього Договору Сторона 1 має право звернутися до суду та вимагати відшкодування збитків і припинення незаконного використання матеріалів.</span>
+                    <span class="lang-content hidden" data-lang="ru">В случае нарушения условий данного Договора Сторона 1 имеет право обратиться в суд и требовать возмещения убытков и прекращения незаконного использования материалов.</span>
+                </p>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">7. Юрисдикція</span>
+                    <span class="lang-content hidden" data-lang="ru">7. Юрисдикция</span>
+                </h3>
+                <p>
+                    <span class="lang-content" data-lang="uk">Усі правовідносини регулюються законодавством України. Спори вирішуються у суді за місцем реєстрації Сторони 1.</span>
+                    <span class="lang-content hidden" data-lang="ru">Все правоотношения регулируются законодательством Украины. Споры решаются в суде по месту регистрации Стороны 1.</span>
+                </p>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">8. Реквізити Виконавця</span>
+                    <span class="lang-content hidden" data-lang="ru">8. Реквизиты Исполнителя</span>
+                </h3>
+                <div class="bg-darker p-4 rounded-lg">
+                    <p><strong>ФОП Казар'ян Павло Ашотович</strong></p>
+                    <p><strong>ІПН:</strong> 2847814635</p>
+                    <p><strong><span class="lang-content" data-lang="uk">Адреса:</span><span class="lang-content hidden" data-lang="ru">Адрес:</span></strong> 57508, Миколаївська обл., м. Очаків, вул. Потьомкіна, 4, кв. 74</p>
+                    <p><strong><span class="lang-content" data-lang="uk">Телефон:</span><span class="lang-content hidden" data-lang="ru">Телефон:</span></strong> +38 (099) 221-99-99</p>
+                    <p><strong>E-mail:</strong> pavel.kazarjan@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="offerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('offer')">&times;</span>
+            <h2 class="text-3xl font-bold mb-6 text-orange">
+                <span class="lang-content" data-lang="uk">Договір публічної оферти</span>
+                <span class="lang-content hidden" data-lang="ru">Договор публичной оферты</span>
+            </h2>
+            <div class="text-gray-300 space-y-4 leading-relaxed">
+                <p class="text-sm text-gray-500">
+                    <span class="lang-content" data-lang="uk">(для курсу «Батьківські Директиви»)</span>
+                    <span class="lang-content hidden" data-lang="ru">(для курса «Родительские Директивы»)</span>
+                </p>
+                <p>
+                    <span class="lang-content" data-lang="uk">ФОП Казар'ян Павло Ашотович, який діє на підставі Виписки з Єдиного державного реєстру (ідентифікаційний код 2847814635), надалі – Виконавець, публікує цю публічну оферту (далі – Договір) про надання інформаційно-освітніх послуг у сфері психології.</span>
+                    <span class="lang-content hidden" data-lang="ru">ФОП Казарян Павел Ашотович, действующий на основании Выписки из Единого государственного реестра (идентификационный код 2847814635), далее – Исполнитель, публикует данную публичную оферту (далее – Договор) о предоставлении информационно-образовательных услуг в сфере психологии.</span>
+                </p>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">1. Загальні положення</span>
+                    <span class="lang-content hidden" data-lang="ru">1. Общие положения</span>
+                </h3>
+                <p><strong>1.1.</strong> <span class="lang-content" data-lang="uk">Цей Договір є публічною офертою відповідно до ст. 633, 641, 642 Цивільного кодексу України.</span><span class="lang-content hidden" data-lang="ru">Данный Договор является публичной офертой в соответствии со ст. 633, 641, 642 Гражданского кодекса Украины.</span></p>
+                <p><strong>1.2.</strong> <span class="lang-content" data-lang="uk">Повним і безумовним прийняттям умов (акцептом) вважається оплата курсу «Батьківські Директиви», оформлення заявки або реєстрація на сайті/в Telegram-боті.</span><span class="lang-content hidden" data-lang="ru">Полным и безусловным принятием условий (акцептом) считается оплата курса «Родительские Директивы», оформление заявки или регистрация на сайте/в Telegram-боте.</span></p>
+                <p><strong>1.3.</strong> <span class="lang-content" data-lang="uk">Договір укладається дистанційно, без підписання у письмовій формі.</span><span class="lang-content hidden" data-lang="ru">Договор заключается дистанционно, без подписания в письменной форме.</span></p>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">2. Предмет договору</span>
+                    <span class="lang-content hidden" data-lang="ru">2. Предмет договора</span>
+                </h3>
+                <p><strong>2.1.</strong> <span class="lang-content" data-lang="uk">Виконавець зобов'язується надати Замовнику доступ до онлайн-курсу «Батьківські Директиви» (далі - Курс), що включає навчальні матеріали, вебінари, домашні завдання, супровід та інші допоміжні послуги.</span><span class="lang-content hidden" data-lang="ru">Исполнитель обязуется предоставить Заказчику доступ к онлайн-курсу «Родительские Директивы» (далее - Курс), включающий учебные материалы, вебинары, домашние задания, сопровождение и другие вспомогательные услуги.</span></p>
+                <p><strong>2.2.</strong> <span class="lang-content" data-lang="uk">Замовник зобов'язується оплатити вартість Курсу згідно з чинними тарифами.</span><span class="lang-content hidden" data-lang="ru">Заказчик обязуется оплатить стоимость Курса согласно действующим тарифам.</span></p>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">3. Права та обов'язки сторін</span>
+                    <span class="lang-content hidden" data-lang="ru">3. Права и обязанности сторон</span>
+                </h3>
+                <p class="font-semibold">
+                    <span class="lang-content" data-lang="uk">Виконавець має право:</span>
+                    <span class="lang-content hidden" data-lang="ru">Исполнитель имеет право:</span>
+                </p>
+                <ul class="list-disc ml-6 space-y-2">
+                    <li><span class="lang-content" data-lang="uk">змінювати програму Курсу, його тривалість і формат без погіршення змісту;</span><span class="lang-content hidden" data-lang="ru">изменять программу Курса, его продолжительность и формат без ухудшения содержания;</span></li>
+                    <li><span class="lang-content" data-lang="uk">призупиняти доступ Замовника у разі порушення правил поведінки чи поширення навчальних матеріалів без дозволу.</span><span class="lang-content hidden" data-lang="ru">приостанавливать доступ Заказчика в случае нарушения правил поведения или распространения учебных материалов без разрешения.</span></li>
+                </ul>
+
+                <p class="font-semibold mt-4">
+                    <span class="lang-content" data-lang="uk">Виконавець зобов'язується:</span>
+                    <span class="lang-content hidden" data-lang="ru">Исполнитель обязуется:</span>
+                </p>
+                <ul class="list-disc ml-6 space-y-2">
+                    <li><span class="lang-content" data-lang="uk">надати якісний освітній контент у межах заявленої програми;</span><span class="lang-content hidden" data-lang="ru">предоставить качественный образовательный контент в рамках заявленной программы;</span></li>
+                    <li><span class="lang-content" data-lang="uk">забезпечити технічну можливість участі в онлайн-заняттях;</span><span class="lang-content hidden" data-lang="ru">обеспечить техническую возможность участия в онлайн-занятиях;</span></li>
+                    <li><span class="lang-content" data-lang="uk">зберігати конфіденційність персональних даних Замовника.</span><span class="lang-content hidden" data-lang="ru">хранить конфиденциальность персональных данных Заказчика.</span></li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">4. Оплата та повернення коштів</span>
+                    <span class="lang-content hidden" data-lang="ru">4. Оплата и возврат средств</span>
+                </h3>
+                <p><strong>4.1.</strong> <span class="lang-content" data-lang="uk">Оплата здійснюється за допомогою платіжних сервісів, зазначених на сайті або в Telegram-боті.</span><span class="lang-content hidden" data-lang="ru">Оплата осуществляется с помощью платежных сервисов, указанных на сайте или в Telegram-боте.</span></p>
+                <p><strong>4.2.</strong> <span class="lang-content" data-lang="uk">У разі відмови Замовника від участі після початку Курсу кошти не повертаються.</span><span class="lang-content hidden" data-lang="ru">В случае отказа Заказчика от участия после начала Курса средства не возвращаются.</span></p>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">5. Інтелектуальна власність</span>
+                    <span class="lang-content hidden" data-lang="ru">5. Интеллектуальная собственность</span>
+                </h3>
+                <p>
+                    <span class="lang-content" data-lang="uk">Усі матеріали Курсу є власністю Виконавця. Їх копіювання, запис чи передача третім особам без письмової згоди заборонені.</span>
+                    <span class="lang-content hidden" data-lang="ru">Все материалы Курса являются собственностью Исполнителя. Их копирование, запись или передача третьим лицам без письменного согласия запрещены.</span>
+                </p>
+
+                <h3 class="text-xl font-bold text-white mt-6">
+                    <span class="lang-content" data-lang="uk">6. Реквізити Виконавця</span>
+                    <span class="lang-content hidden" data-lang="ru">6. Реквизиты Исполнителя</span>
+                </h3>
+                <div class="bg-darker p-4 rounded-lg">
+                    <p><strong>ФОП Казар'ян Павло Ашотович</strong></p>
+                    <p><strong>ІПН:</strong> 2847814635</p>
+                    <p><strong><span class="lang-content" data-lang="uk">Адреса:</span><span class="lang-content hidden" data-lang="ru">Адрес:</span></strong> 57508, Миколаївська обл., м. Очаків, вул. Потьомкіна, 4, кв. 74</p>
+                    <p><strong><span class="lang-content" data-lang="uk">Телефон:</span><span class="lang-content hidden" data-lang="ru">Телефон:</span></strong> +38 (099) 221-99-99</p>
+                    <p><strong>E-mail:</strong> pavel.kazarjan@gmail.com</p>
+                    <p class="text-sm text-gray-500 mt-2">
+                        <span class="lang-content" data-lang="uk">Дата реєстрації: 28.04.2011</span>
+                        <span class="lang-content hidden" data-lang="ru">Дата регистрации: 28.04.2011</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Carousel
+        let currentSlide = 0;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.carousel-item');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            if (!slides.length) return;
+            
+            currentSlide = n;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = slides.length - 1;
+            
+            const container = document.querySelector('.carousel-container');
+            if (container) {
+                container.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+            
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Auto-rotate carousel every 5 seconds
+        setInterval(nextSlide, 5000);
+        
+        // Modal functions
+        function openModal(modalType) {
+            const modal = document.getElementById(modalType + 'Modal');
+            if (modal) modal.classList.add('active');
+        }
+        
+        function closeModal(modalType) {
+            const modal = document.getElementById(modalType + 'Modal');
+            if (modal) modal.classList.remove('active');
+        }
+        
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('active');
+            }
+        });
+        
+        // Language Switcher
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const langContent = document.querySelectorAll('.lang-content');
+        
+        // Load saved language or default to 'uk'
+        const savedLang = localStorage.getItem('selectedLang') || 'uk';
+        setLanguage(savedLang);
+        
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                setLanguage(lang);
+                localStorage.setItem('selectedLang', lang);
+            });
+        });
+        
+        function setLanguage(lang) {
+            // Update buttons
+            langButtons.forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Update content
+            langContent.forEach(content => {
+                if (content.getAttribute('data-lang') === lang) {
+                    content.classList.remove('hidden');
+                } else {
+                    content.classList.add('hidden');
+                }
+            });
+            
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+        }
+        
+        // Countdown Timer - set to November 1, 2025
+        (function initCountdown() {
+            const countdownDate = new Date('November 1, 2025 00:00:00').getTime();
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+                
+                if (distance < 0) {
+                    document.getElementById('days').textContent = '0';
+                    document.getElementById('hours').textContent = '0';
+                    document.getElementById('minutes').textContent = '0';
+                    document.getElementById('seconds').textContent = '0';
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
+    </script>
+</body>
+</html>
